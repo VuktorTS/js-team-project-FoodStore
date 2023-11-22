@@ -1,0 +1,12 @@
+.filter {
+  width: 100%;
+  min-height: 48px;
+  border-radius: 30px;
+  border: 1px solid rgba(1, 1, 1, 0.3);
+}
+
+.wrapper-inputs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
