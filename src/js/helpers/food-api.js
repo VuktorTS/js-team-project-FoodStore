@@ -3,27 +3,27 @@ import axios from 'axios';
 axios.defaults.baseURL = 'https://food-boutique.b.goit.study/api';
 
 export class ProductsAPI {
-  static options = {
-    page: 1,
-    limit: 5,
-    keyword: '',
-    category: '',
-    byABC: false,
-    byPrice: false,
-    byPopularity: false,
-    id:'',
-  };
+   constructor () {
+    this.page = 1;
+    this.limit = 5;
+    this.keyword = '';
+    this.category = '';
+    this.byABC = false;
+    this.byPrice = false;
+    this.byPopularity = false;
+    this.id ='';
+  }
 
   async getProducts() {
     const response = await axios.get('/products', {
       params: {
-        page: this.options.page,
-        limit: this.options.limit,
-        keyword: this.options.keyword,
-        category: this.options.category,
-        byABC: this.options.byABC,
-        byPrice: this.options.byPrice,
-        byPopularity: this.options.byPopularity,
+        page: this.page,
+        limit: this.limit,
+        keyword: this.keyword,
+        category: this.category,
+        byABC: this.byABC,
+        byPrice: this.byPrice,
+        byPopularity: this.byPopularity,
       },
     });
     return response.data;
@@ -32,9 +32,9 @@ export class ProductsAPI {
   async getPopularProducts() {
     const response = await axios.get('/products/popular', {
       params: {
-        page: this.options.page,
-        limit: this.options.limit,
-        byPopularity: this.options.byPopularity,
+        page: this.page,
+        limit: this.limit,
+        byPopularity: this.byPopularity,
       },
     });
     return response.data;
@@ -43,9 +43,9 @@ export class ProductsAPI {
   async getDiscountProducts() {
     const response = await axios.get('/products/discount', {
       params: {
-        page: this.options.page,
-        limit: this.options.limit,
-        byPrice: this.options.byPrice,
+        page: this.page,
+        limit: this.limit,
+        byPrice: this.byPrice,
       },
     });
     return response.data;
@@ -54,9 +54,9 @@ export class ProductsAPI {
   async getProductCategories() {
     const response = await axios.get('/products/categories', {
       params: {
-        page: this.options.page,
-        limit: this.options.limit,
-        category: this.options.category,
+        page: this.page,
+        limit: this.limit,
+        category: this.category,
       },
     });
     return response.data;
@@ -65,9 +65,9 @@ export class ProductsAPI {
   async getProductById(id) {
     const response = await axios.get(`/products/${id}`, {
       params: {
-        page: this.options.page,
-        limit: this.options.limit,
-        id: this.options.id,
+        page: this.page,
+        limit: this.limit,
+        id: this.id,
       },
     });
     return response.data;
@@ -91,3 +91,7 @@ export class ProductsAPI {
     return response.data;
   }
 }
+
+// const api = new ProductsAPI();
+// const test = api.getProducts();
+// console.log("test:", test);
