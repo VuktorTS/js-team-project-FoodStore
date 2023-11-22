@@ -1,1 +1,28 @@
-<p>filters</p>
+<section>
+  <div class="container">
+    <form>
+      <div class="wrapper-inputs">
+        <label for="search">Filters</label>
+        <div class="wrapper_search">
+          <input
+            placeholder="Search for anything"
+            id="search"
+            class="filter"
+            name="search"
+            type="text"
+          />
+          <button type="button">
+            <svg width="20" height="20">
+              <use href="./images/icons.svg#icon-search"></use>
+            </svg>
+          </button>
+        </div>
+        <label for="categories"> </label>
+        <select id="categories" class="filter" name="categories"></select>
+        <label for="sort"> </label>
+        <select id="sort" class="filter" name="sort"></select>
+      </div>
+    </form>
+    <div class="wrapper_card"></div>
+  </div>
+</section>
