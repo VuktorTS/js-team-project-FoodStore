@@ -1,1 +1,36 @@
-<p>header</p>
+<!-- <p>header</p> -->
+<header class="header container">
+  <nav class="header-navigation">
+    <a
+      class="header-logo-img link"
+      href=""
+      aria-label="logo"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <svg class="logo-icon">
+        <use href="./images/icons.svg#icon-logo"></use>
+      </svg>
+    </a>
+    <a href="" class="header-logo link"> Food Boutique </a>
+  </nav>
+
+  <div class="header-buttons">
+    <ul class="buttons-list">
+      <li class="element-button">
+        <button type="button" class="home-menu-btn">Home</button>
+      </li>
+      <li class="element-button">
+        <button type="button" class="shopping-cart-btn">
+          <svg class="shopping-cart-icon">
+            <use href="./images/icons.svg#icon-shopping-cart"></use>
+          </svg>
+        </button>
+      </li>
+    </ul>
+    <p class="cart-text">
+      Cart
+      <span id="cart-counter" class="cart-counter">0</span>
+    </p>
+  </div>
+</header>
