@@ -1,4 +1,5 @@
 @import 'npm:modern-normalize/modern-normalize.css';
+@import 'default.css';
 @import 'reset.css';
 @import 'header.css';
 @import 'hero.css';
@@ -7,5 +8,5 @@
 @import 'pagination.css';
 @import 'popular-products.css';
 @import 'discount-products.css';
-@import 'cart.css';
 @import 'footer.css';
+@import 'cart.css';
