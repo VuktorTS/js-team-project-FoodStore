@@ -1,0 +1,11 @@
+@import 'npm:modern-normalize/modern-normalize.css';
+@import 'reset.css';
+@import 'header.css';
+@import 'hero.css';
+@import 'filters.css';
+@import 'products-list.css';
+@import 'pagination.css';
+@import 'popular-products.css';
+@import 'discount-products.css';
+@import 'cart.css';
+@import 'footer.css';

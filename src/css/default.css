@@ -1,0 +1,76 @@
+@font-face {
+  font-family: 'Neue Montreal';
+  src: url('../fonts/NeueMontreal-Medium.woff2') format('woff2'),
+    url('../fonts/NeueMontreal-Medium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Fonts Pring';
+  src: url('../fonts/FONTSPRINGDEMO-QuincyCFBlackRegular.woff2') format('woff2'),
+    url('../fonts/FONTSPRINGDEMO-QuincyCFBlackRegular.woff') format('woff');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Neue Montreal';
+  src: url('../fonts/NeueMontreal-Regular.woff2') format('woff2'),
+    url('../fonts/NeueMontreal-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+:root {
+  --color-main-bg: #e8e8e2;
+  --color-second-bg: #6d8434;
+  --third-bg: #fafafa;
+  --color-text: #010101;
+  --color-second-text: #a3a3a3;
+  --color-btn-green-dark: #586f1f;
+  --color-btn-gray: #e8e8e2;
+  --color-btn-black: #010101;
+}
+
+body {
+  font-family: 'Neue Montreal', sans-serif;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 1.2;
+  color: var(--color-text);
+  background-color: var(--color-main-bg);
+}
+
+.container {
+  margin: 0 auto;
+  max-width: 335px;
+}
+@media (min-width: 768px) {
+  .container {
+    max-width: 704px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .container {
+    max-width: 1240px;
+  }
+}
