@@ -34,10 +34,6 @@ export class ProductsAPI {
       params: {
         page: this.options.page,
         limit: this.options.limit,
-        keyword: this.options.keyword,
-        category: this.options.category,
-        byABC: this.options.byABC,
-        byPrice: this.options.byPrice,
         byPopularity: this.options.byPopularity,
       },
     });
@@ -49,11 +45,7 @@ export class ProductsAPI {
       params: {
         page: this.options.page,
         limit: this.options.limit,
-        keyword: this.options.keyword,
-        category: this.options.category,
-        byABC: this.options.byABC,
         byPrice: this.options.byPrice,
-        byPopularity: this.options.byPopularity,
       },
     });
     return response.data;
@@ -64,11 +56,7 @@ export class ProductsAPI {
       params: {
         page: this.options.page,
         limit: this.options.limit,
-        keyword: this.options.keyword,
         category: this.options.category,
-        byABC: this.options.byABC,
-        byPrice: this.options.byPrice,
-        byPopularity: this.options.byPopularity,
       },
     });
     return response.data;
@@ -79,11 +67,6 @@ export class ProductsAPI {
       params: {
         page: this.options.page,
         limit: this.options.limit,
-        keyword: this.options.keyword,
-        category: this.options.category,
-        byABC: this.options.byABC,
-        byPrice: this.options.byPrice,
-        byPopularity: this.options.byPopularity,
         id: this.options.id,
       },
     });
