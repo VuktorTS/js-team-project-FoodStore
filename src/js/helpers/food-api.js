@@ -2,7 +2,7 @@ import axios from 'axios';
 
 axios.defaults.baseURL = 'https://food-boutique.b.goit.study/api';
 
- class ProductsAPI {
+ export class ProductsAPI {
    constructor () {
     this.page = 1;
     this.limit = 5;
@@ -92,6 +92,3 @@ axios.defaults.baseURL = 'https://food-boutique.b.goit.study/api';
   }
 }
 
-const api = new ProductsAPI();
-const test = api.getProducts();
-console.log("test:", test);
