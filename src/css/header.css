@@ -39,7 +39,7 @@
   .header-logo {
     color: var(--color-text);
     font-weight: 900;
-    font-family: 'FONTSPRING DEMO';
+    font-family: 'Fonts Pring';
     /* font family error */
     font-size: 18px;
     line-height: 1.11px;
@@ -61,9 +61,7 @@
   .home-menu-btn {
     display: flex;
     padding: 10px 20px;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
+   
     border-radius: 30px;
     border: none;
     cursor: pointer;
