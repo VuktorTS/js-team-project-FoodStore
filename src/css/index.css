@@ -1,4 +1,5 @@
 @import 'npm:modern-normalize/modern-normalize.css';
+@import 'npm:slim-select/dist/slimselect.css';
 @import 'default.css';
 @import 'reset.css';
 @import 'header.css';

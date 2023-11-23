@@ -3,7 +3,7 @@ import axios from 'axios';
 axios.defaults.baseURL = 'https://food-boutique.b.goit.study/api';
 
 export class ProductsAPI {
-   constructor () {
+  constructor() {
     this.page = 1;
     this.limit = 5;
     this.keyword = '';
@@ -11,7 +11,7 @@ export class ProductsAPI {
     this.byABC = false;
     this.byPrice = false;
     this.byPopularity = false;
-    this.id ='';
+    this.id = '';
   }
 
   async getProducts() {
