@@ -1,0 +1,75 @@
+.product-card {
+    width: 335px;
+  height: 98px;
+  border-radius:var(--third-bg);
+  display: flex;
+    align-items: start;
+  padding: 12px;
+  gap: 10px;
+  background-color: var(--third-bg);
+  position: relative;
+  margin-bottom: 14px;
+  
+  }
+  
+  .product-icon {
+    width: 74px;
+  height: 74px;
+  border-radius: 10px;
+  background-color: var( --color-main-bg);
+  content: " ";
+  }
+  
+  .popular-name {
+    color: var(--color-text);
+    font-size: 18px;
+    line-height: 1.11em;
+    margin-bottom: 12px;
+  }
+  .popular-text {
+    color: var(--color-second-tex);
+    font-size: 12px;
+    line-height: 1.16em;
+    margin-bottom: 9px;
+  }
+  .row {
+    gap: 9px;
+    display: flex;
+  }
+  .add-to-bascket {
+    width: 10px;
+  height: 10px;
+  position: absolute;
+    top: 16px;
+    right: 17px;
+  background-color: var(--color-btn-gray);
+  }
+  
+  @media screen and (min-width: 768px) {
+    .popular-container {
+      
+      display: flex;
+    flex-wrap: wrap;
+    gap: 13px
+    }
+    .product-card {
+      width: 275px;
+      margin-bottom: 0px;
+    }
+    .add-to-bascket {
+      width: 12px;
+      height: 12px;
+    }
+    .popular-name {
+      font-size: 20px;
+      line-height: 1.2em;
+      margin-top: 0;
+    }
+    
+  }
+    @media screen and (min-width: 1440px) {
+        .popular-container {
+            flex-wrap: nowrap;
+            flex-direction: column;
+        }
+    }
