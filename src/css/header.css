@@ -1,0 +1,101 @@
+/*!------------ MOBILE-------------- */
+@media screen and (min-width: 428px) {
+  .container {
+    max-width: 428px;
+  }
+  .header {
+    display: flex;
+    padding-top: 18px;
+    /* padding-right: 20px;
+    padding-left: 20px; */
+    justify-content: space-between;
+    align-items: center;
+  }
+  .container {
+  }
+  .header-navigation {
+    display: flex;
+    gap: 8px;
+    text-align: center;
+    display: flex;
+    /* justify-content: space-between; */
+    align-items: center;
+  }
+  .header-logo-img {
+    width: 28px;
+    height: 28px;
+    border-radius: 50px;
+    background-color: var(--color-second-bg);
+    fill: var(--color-main-bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .logo-icon {
+    width: 16px;
+    height: 16px;
+  }
+  .header-logo {
+    color: var(--color-text);
+    font-weight: 900;
+    font-family: 'FONTSPRING DEMO';
+    /* font family error */
+    font-size: 18px;
+    line-height: 1.11px;
+    letter-spacing: 0.02em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .header-buttons {
+    margin-left: auto;
+  }
+  .buttons-list {
+    display: flex;
+    gap: 6px;
+    /* margin-left: auto; */
+  }
+  .element-button {
+  }
+  .home-menu-btn {
+    display: flex;
+    padding: 10px 20px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-radius: 30px;
+    border: none;
+    cursor: pointer;
+    background-color: var(--color-second-bg);
+    color: var(--color-main-bg);
+    font-family: 'Neue Montreal', sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 1.28571; /* 128.571% */
+  }
+  .shopping-cart-btn {
+    border-radius: 50px;
+    fill: var(--color-main-bg);
+    border: none;
+    cursor: pointer;
+    background-color: var(--color-second-bg);
+    display: flex;
+    padding: 12px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    width: 38px;
+    height: 38px;
+  }
+  .shopping-cart-icon {
+    width: 14px;
+    width: 14px;
+  }
+  .cart-text {
+    display: none;
+  }
+  .cart-counter {
+  }
+}
