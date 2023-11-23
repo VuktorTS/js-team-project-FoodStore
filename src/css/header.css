@@ -1,8 +1,6 @@
 /*!------------ MOBILE-------------- */
 @media screen and (min-width: 428px) {
-  .container {
-    max-width: 428px;
-  }
+  
   .header {
     display: flex;
     padding-top: 18px;
@@ -11,14 +9,12 @@
     justify-content: space-between;
     align-items: center;
   }
-  .container {
-  }
+  
   .header-navigation {
     display: flex;
     gap: 8px;
     text-align: center;
     display: flex;
-    /* justify-content: space-between; */
     align-items: center;
   }
   .header-logo-img {
@@ -32,6 +28,13 @@
     justify-content: center;
   }
 
+  .header-logo-img:focus,
+  .header-logo-img:hover {
+  background-color: var(--color-main-bg);
+  fill: var(--color-second-bg);
+}
+
+
   .logo-icon {
     width: 16px;
     height: 16px;
@@ -40,7 +43,6 @@
     color: var(--color-text);
     font-weight: 900;
     font-family: 'Fonts Pring';
-    /* font family error */
     font-size: 18px;
     line-height: 1.11px;
     letter-spacing: 0.02em;
@@ -48,16 +50,25 @@
     align-items: center;
     justify-content: center;
   }
+  .header-navigation:focus,
+  .header-navigation:hover{
+    background-color: var(--color-second-bg);
+    border-radius: 9px;
+    padding-left: 15px;
+    padding-top: 16px;
+    padding-right:21px ;
+    padding-bottom: 17px;
+  }
   .header-buttons {
     margin-left: auto;
+    
   }
   .buttons-list {
     display: flex;
     gap: 6px;
-    /* margin-left: auto; */
+
   }
-  .element-button {
-  }
+  
   .home-menu-btn {
     display: flex;
     padding: 10px 20px;
@@ -94,6 +105,59 @@
   .cart-text {
     display: none;
   }
-  .cart-counter {
-  }
+  
+ 
 }
+
+@media screen and (min-width: 767px) {
+
+    .header {
+        display: flex;
+        padding-top: 24px;
+    }
+    .header-logo-img {
+        width: 32px;
+        height: 32px;
+    }
+    .header-logo {
+        font-size: 24px;
+        line-height: 1; 
+    }
+    .logo-icon {
+        width: 20px;
+        height: 20px;
+      }
+      .home-menu-btn {
+        font-size: 18px;
+        line-height: 1.33;
+        padding: 12px 28px;
+      }
+      .shopping-cart-icon {
+        width: 18px;
+        width: 18px;
+      }
+      .shopping-cart-btn {
+        padding: 10px;
+      }
+      .cart-text {
+        display: flex;
+        color: var(--color-text);
+
+font-size: 18px;
+
+line-height: 1.33; 
+text-transform: uppercase;
+      }
+      .header-buttons {
+       gap:14px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .buttons-list {
+        
+        align-items: center;
+    }
+       
+}
+
