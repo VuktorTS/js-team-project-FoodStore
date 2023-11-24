@@ -25,7 +25,7 @@
 
 
   
- }
+ 
  .info-list:nth-child(n+2) {
     flex-basis: 100%;
   } 
