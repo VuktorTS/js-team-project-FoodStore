@@ -1,9 +1,17 @@
 import SlimSelect from 'slim-select';
 import { ProductsAPI } from './helpers/food-api';
+import 'npm:slim-select/dist/slimselect.css';
+import '../css/index.css';
 
 const product = new ProductsAPI();
 
-// product.getProductCategories().then(data => console.log(data));
+const select = new SlimSelect({
+  label: 'label',
+  select: '#categories',
+  settings: {
+    showSearch: false,
+  },
+});
 
 const arr = ['apple', 'orange', 'banana'];
 
@@ -12,14 +20,6 @@ let test = arr.map(el => {
     text: el,
     value: el,
   };
-});
-
-const select = new SlimSelect({
-  label: 'label',
-  select: '#categories',
-  settings: {
-    showSearch: false,
-  },
 });
 
 select.setData([{ placeholder: true, text: 'Categories' }, ...test]);
