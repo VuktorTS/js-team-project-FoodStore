@@ -3,27 +3,12 @@ import axios from 'axios';
 axios.defaults.baseURL = 'https://food-boutique.b.goit.study/api';
 
 export class ProductsAPI {
-   constructor () {
-    this.page = 1;
-    this.limit = 5;
-    this.keyword = '';
-    this.category = '';
-    this.byABC = false;
-    this.byPrice = false;
-    this.byPopularity = false;
-    this.id ='';
-  }
+  constructor() {}
 
-  async getProducts() {
+  async getProducts(newParametrs) {
     const response = await axios.get('/products', {
       params: {
-        page: this.page,
-        limit: this.limit,
-        keyword: this.keyword,
-        category: this.category,
-        byABC: this.byABC,
-        byPrice: this.byPrice,
-        byPopularity: this.byPopularity,
+        ...newParametrs,
       },
     });
     return response.data;
@@ -32,44 +17,24 @@ export class ProductsAPI {
   async getPopularProducts() {
     const response = await axios.get('/products/popular', {
       params: {
-        page: this.page,
-        limit: this.limit,
-        byPopularity: this.byPopularity,
+        ...newParametrs,
       },
     });
     return response.data;
   }
 
   async getDiscountProducts() {
-    const response = await axios.get('/products/discount', {
-      params: {
-        page: this.page,
-        limit: this.limit,
-        byPrice: this.byPrice,
-      },
-    });
+    const response = await axios.get('/products/discount');
     return response.data;
   }
 
   async getProductCategories() {
-    const response = await axios.get('/products/categories', {
-      params: {
-        page: this.page,
-        limit: this.limit,
-        category: this.category,
-      },
-    });
+    const response = await axios.get('/products/categories');
     return response.data;
   }
 
   async getProductById(id) {
-    const response = await axios.get(`/products/${id}`, {
-      params: {
-        page: this.page,
-        limit: this.limit,
-        id: this.id,
-      },
-    });
+    const response = await axios.get(`/products/${id}`);
     return response.data;
   }
 
@@ -91,7 +56,3 @@ export class ProductsAPI {
     return response.data;
   }
 }
-
-// const api = new ProductsAPI();
-// const test = api.getProducts();
-// console.log("test:", test);
