@@ -3,23 +3,30 @@ import { ProductsAPI } from './helpers/food-api';
 import 'npm:slim-select/dist/slimselect.css';
 import '../css/index.css';
 
-const product = new ProductsAPI();
+const filters = {
+  categories: new ProductsAPI(),
+  select: new SlimSelect({
+    label: 'label',
+    select: '#categories',
+    settings: {
+      showSearch: false,
+    },
+  }),
+};
 
-const select = new SlimSelect({
-  label: 'label',
-  select: '#categories',
-  settings: {
-    showSearch: false,
-  },
-});
-
-const arr = ['apple', 'orange', 'banana'];
-
-let test = arr.map(el => {
-  return {
-    text: el,
-    value: el,
-  };
-});
-
-select.setData([{ placeholder: true, text: 'Categories' }, ...test]);
+filters.categories
+  .getProductCategories()
+  .then(data => {
+    return data.map(el => {
+      return {
+        text: el,
+        value: el,
+      };
+    });
+  })
+  .then(data => {
+    filters.select.setData([
+      { placeholder: true, text: 'Categories' },
+      ...data,
+    ]);
+  });
