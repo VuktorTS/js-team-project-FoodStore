@@ -8,6 +8,7 @@
     display: flex;
     justify-content: space-between;
   }
+  
   .header-item {
     display: flex;
 
@@ -24,9 +25,7 @@
     border-radius: 50px;
     background-color: var(--color-second-bg);
     fill: var(--color-main-bg);
-    display: flex;
-    align-items: center;
-    justify-content: center;
+   gap: 9px;
   }
   .logo-icon {
     width: 16px;
@@ -142,6 +141,7 @@
   .header-item.first {
     gap: 8px;
     padding-left: 9px;
+    display: block;
   }
   .header-logo-link {
     width: 28px;
@@ -149,7 +149,7 @@
     border-radius: 50px;
     background-color: var(--color-second-bg);
     fill: var(--color-main-bg);
-    display: flex;
+    
     align-items: center;
     justify-content: center;
   }
