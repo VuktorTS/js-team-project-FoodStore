@@ -28,12 +28,11 @@
 .wrapper-inputs {
   display: flex;
   flex-wrap: wrap;
+  margin-bottom: 40px;
 }
 
 .filters_text {
-  display: block;
-  color: rgba(1, 1, 1, 0.3);
-  font-family: 'Neue Montreal';
+  color: var(--color-text-transparent);
   font-size: 14px;
   line-height: 1.2;
   margin-bottom: 8px;
@@ -79,6 +78,10 @@
 .ss-content.ss-open-below {
   transform: translateY(8px);
   border-radius: 15px;
+}
+
+.ss-main.ss-open-below {
+  border-radius: 30px;
 }
 
 .ss-content .ss-list {
