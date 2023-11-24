@@ -54,11 +54,14 @@
   .header-navigation:hover{
     background-color: var(--color-second-bg);
     border-radius: 9px;
-    padding-left: 15px;
-    padding-top: 16px;
-    padding-right:21px ;
-    padding-bottom: 17px;
+   
+   
   }
+  .header-navigation:hover .header-logo-img,
+.header-navigation:focus .header-logo-img {
+    background-color: var(--color-main-bg);
+    fill: var(--color-second-bg);
+}
   .header-buttons {
     margin-left: auto;
     
@@ -84,6 +87,10 @@
     font-weight: 500;
     line-height: 1.28571; /* 128.571% */
   }
+  .home-menu-btn:hover,
+  .home-menu-btn:focus{
+    background-color: var(--color-btn-green-dark);
+  }
   .shopping-cart-btn {
     border-radius: 50px;
     fill: var(--color-main-bg);
@@ -97,6 +104,10 @@
     gap: 10px;
     width: 38px;
     height: 38px;
+  }
+  .shopping-cart-btn:hover,
+  .shopping-cart-btn:focus{
+    background-color: var(--color-btn-green-dark);
   }
   .shopping-cart-icon {
     width: 14px;
@@ -158,6 +169,13 @@ text-transform: uppercase;
         
         align-items: center;
     }
+    .header-navigation:focus,
+  .header-navigation:hover{
+    padding-right: 14px;
+    padding-left: 9px;
+   
+   
+  }
        
 }
 
