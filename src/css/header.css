@@ -3,12 +3,7 @@
   .header {
     padding-top: 18px;
   }
-  .header-navigation {
-    display: flex;
-    text-align: center;
-    display: flex;
-    align-items: center;
-  }
+  
   .header-list {
     display: flex;
     justify-content: space-between;
