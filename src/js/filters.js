@@ -6,10 +6,15 @@ import '../css/index.css';
 const filters = {
   categories: new ProductsAPI(),
   select: new SlimSelect({
-    label: 'label',
+    events: {
+      beforeChange: newVal => {
+        console.log(newVal[0].value);
+      },
+    },
     select: '#categories',
     settings: {
       showSearch: false,
+      placeholderText: 'Categories',
     },
   }),
 };

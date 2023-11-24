@@ -54,6 +54,9 @@
   top: 50%;
   transform: translateY(-50%);
 }
+#categories {
+  display: none;
+}
 
 .ss-main {
   border-radius: 30px;
@@ -82,6 +85,10 @@
 
 .ss-main.ss-open-below {
   border-radius: 30px;
+}
+
+.ss-content {
+  border-radius: 15px;
 }
 
 .ss-content .ss-list {
@@ -118,6 +125,10 @@
 .ss-content .ss-list .ss-option:hover {
   background-color: #fff;
   color: var(--color-text);
+}
+
+.ss-main.ss-open-above {
+  border-radius: 30px;
 }
 
 .ss-content .ss-list .ss-option:not(.ss-disabled).ss-selected {
