@@ -39,8 +39,7 @@ top: 19px;
 right: 19px;
 margin-bottom: 9px;
     border: none;
-    background-color:var(--color-second-bg);
-    /* background-color:var(---third-bg); */
+    background-color:var(---third-bg);
                content: "";
                border: none;
                border-radius: 50%;
@@ -51,27 +50,25 @@ margin-bottom: 9px;
 
  .modal-content {
     display: flex;
-margin-bottom: 27px;
+    margin-bottom: 40px;
+ }
+ .top {
+  margin-bottom: 27px;
  }
 
  .product-icon {
-    display: flex;
+   
     background-color: var(--color-main-bg);
     border-radius: 10px;
     width: 295px;
 height: 212px;
     margin-bottom: 20px;
-    align-items: center;
-    justify-content: center;
  }
  
  .description-text {
-     width: 295px;
-     height: 54px;
     margin-top: 20px;
     color: rgba(1, 1, 1, 0.70);
-    line-height: 1,3em;
-    font-size: 14px;
+    line-height: 1.25em;
  }
  
  
@@ -82,7 +79,6 @@ height: 212px;
     margin-bottom: 10px;
   }
   .details-text {
-    margin-bottom: 9px;
     color: var(--color-second-text);
     font-size: 12px;
     line-height: 1.16em;
@@ -160,18 +156,19 @@ padding: 26px 40px;
 }
 .modal-content{
   justify-content: space-between;
-  
+  margin-bottom: 28px;
 }
 
 .top {
     gap: 24px;
     display: flex;
+    margin-bottom: 0;
   }
   .description-text{
     width: 256px;
     font-size: 16px;
     line-height: 1,25em;
-    flex-wrap: nowrap;
+    
   }
   .popularity {
     display: block;
