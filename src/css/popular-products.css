@@ -56,7 +56,7 @@ color: var(--color-text);
 gap: 9px;
 display: flex;
 }
-.add-to-bascket {
+.add-to-basket {
 width: 20px;
 height: 20px;
 position: absolute;
