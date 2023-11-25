@@ -1,45 +1,9 @@
 import  storage  from './local-storage';
 import { CART_KEY } from './storage-keys';
 
-const products = 
-    [
-        {
-          "_id": "640c2dd963a319ea671e383b",
-          "name": "Ackee",
-          "img": "https://ftp.goit.study/img/so-yummy/ingredients/640c2dd963a319ea671e383b.png",
-          "desc": "A fruit that is native to West Africa, but is also grown in the Caribbean, and is often used in traditional Jamaican dishes such as ackee and saltfish.",
-          "category": "Fresh_Produce",
-          "price": 8.99,
-          "size": "16 oz",
-          "is10PercentOff": false,
-          "popularity": 3
-        },
-        {
-          "_id": "640c2dd963a319ea671e365b",
-          "name": "Chicken",
-          "img": "https://ftp.goit.study/img/so-yummy/ingredients/640c2dd963a319ea671e365b.png",
-          "price": 9.99,
-          "size": "1.5 kg",
-          "category": "Meat_&_Seafood",
-          "is10PercentOff": false,
-          "popularity": 2
-        },
-        {
-          "_id": "640c2dd963a319ea671e3860",
-          "name": "Allspice",
-          "img": "https://ftp.goit.study/img/so-yummy/ingredients/640c2dd963a319ea671e3860.png",
-          "category": "Pantry_Items",
-          "price": 2.99,
-          "size": "1.5oz",
-          "is10PercentOff": false,
-          "popularity": 1
-        }
-      ]
-
-
 
       function createCartMarkup(products) {
-        const markupCartArray = products.map(({img, name, category, size, price} = products) => {
+        const markupCartArray = products.map(({img, name, category, size, price}) => {
             return `
                 <li class="products-item">
                     <div class="cart-product-img-container">
@@ -73,7 +37,7 @@ const products =
     }
     
     function createCardsMarkup (products) {
-        const markupCardArray = products.map(({_id, img, name, category, size, popularity, price} = products) => {
+        const markupCardArray = products.map(({img, name, category, size, popularity, price}) => {
             const isInCart = storage.loadFromLocalStorage(CART_KEY);
 
             const cartSvg = isInCart
@@ -88,11 +52,11 @@ const products =
             <div class="text_wrapped">
               <h3 class="text_name_prod">${name}</h3>
               <div class="wrapper_info">
-                <p class="text_title">Category</p>
+                <p class="text_title">Category:</p>
                 <span class="text_subtitle">${category}</span>
-                <p class="text_title">Size</p>
+                <p class="text_title">Size:</p>
                 <span class="text_subtitle">${size}</span>
-                <p class="text_title">Popularity</p>
+                <p class="text_title">Popularity:</p>
                 <span class="text_subtitle">${popularity}</span>
               </div>
             </div>
@@ -109,7 +73,7 @@ const products =
         return markupCardArray.join('');
     }
     function createModalMarkup (products) {
-        const markupModalArray = products.map(({img, name, category, size, popularity, price, desc, _id} = products) => {
+        const markupModalArray = products.map(({img, name, category, size, popularity, price, desc}) => {
         
 
             const isInCart = storage.loadFromLocalStorage(CART_KEY);
@@ -165,7 +129,7 @@ const products =
     }
 
     function createPopularProductsMarkup (products) {
-        const markupPopularProductsArray = products.map(({img, name, category, size, popularity} = products) => {
+        const markupPopularProductsArray = products.map(({img, name, category, size, popularity}) => {
 
             const isInCart = storage.loadFromLocalStorage(CART_KEY);
 
@@ -193,4 +157,4 @@ const products =
         return markupPopularProductsArray.join('');
     }
     
-    export {createCardsMarkup, createCartMarkup, createModalMarkup, createPopularProductsMarkup, products}
+    export {createCardsMarkup, createCartMarkup, createModalMarkup, createPopularProductsMarkup}
