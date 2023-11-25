@@ -1,6 +1,6 @@
 import SlimSelect from 'slim-select';
 import { ProductsAPI } from './helpers/food-api';
-import { FILTER_KEY } from './helpers/storage-keys';
+import { FILTER_KEY, PRODUCTS_KEY } from './helpers/storage-keys';
 import localStorage from './helpers/local-storage';
 import 'npm:slim-select/dist/slimselect.css';
 import '../css/index.css';
@@ -105,9 +105,11 @@ function onSubmit(e) {
 
 async function renderMarkUpProducts() {
   const result = await fetchProducts();
+  localStorage.saveToLocalStorage(PRODUCTS_KEY, result);
   const markup = createCardsMarkup(result);
   if (!markup.length) {
     filters.notFoundRef.classList.remove('hidden');
+    filters.ulRef.innerHTML = '';
     return;
   }
   filters.notFoundRef.classList.add('hidden');
