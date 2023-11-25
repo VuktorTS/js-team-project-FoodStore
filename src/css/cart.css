@@ -97,3 +97,8 @@ svg.cart-icon {
 .cart-product-price {
   line-height: 1.11; /* 111.111% */
 }
+#my-scrollbar {
+  width: 500px;
+  height: 500px;
+  overflow: auto;
+}
