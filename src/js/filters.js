@@ -40,20 +40,32 @@ function createCardsMarkup(products) {
   return markupCardArray.join('');
 }
 
-const storageSave = localStorage.loadFromLocalStorage(FILTER_KEY);
-
 const filters = {
   categories: new ProductsAPI(),
   formRef: document.querySelector('.form_filters'),
+  inputRef: document.querySelector('.filter'),
   ulRef: document.querySelector('.wrapper_card'),
   select: new SlimSelect({
     events: {
       beforeChange: newVal => {
-        getProductsCategory(newVal[0].value);
-        localStorage.saveToLocalStorage(FILTER_KEY, {
-          ...storageSave,
-          categories: newVal[0].value,
-        });
+        const selected = newVal[0].value;
+        if (selected === 'Show all') {
+          filters.inputRef.value = '';
+          localStorage.saveToLocalStorage(FILTER_KEY, {
+            keyword: null,
+            categories: null,
+          });
+          renderMarkUpProducts();
+          return;
+        }
+        const storageSave = localStorage.loadFromLocalStorage(FILTER_KEY);
+        if (selected !== 'Show all') {
+          localStorage.saveToLocalStorage(FILTER_KEY, {
+            ...storageSave,
+            categories: newVal[0].value,
+          });
+        }
+        renderMarkUpProducts();
       },
     },
     select: '#categories',
@@ -65,7 +77,9 @@ const filters = {
     },
   }),
 };
-checkStorage();
+
+checkSearchValue();
+renderMarkUpProducts();
 
 filters.formRef.addEventListener('submit', onSubmit);
 
@@ -78,59 +92,28 @@ function getValueCategories() {
 
 function onSubmit(e) {
   e.preventDefault();
+  const storageSave = localStorage.loadFromLocalStorage(FILTER_KEY);
   const { search } = filters.formRef;
-  console.log(storageSave);
   localStorage.saveToLocalStorage(FILTER_KEY, {
     ...storageSave,
     keyword: search.value,
   });
-  const products = localStorage.loadFromLocalStorage('products');
-  const value = search.value.toLowerCase();
-  if (search.value.length) {
-    const newArr = products.filter(el => el.name.toLowerCase().includes(value));
-    filters.ulRef.innerHTML = createCardsMarkup(newArr);
-  } else {
-    const category = localStorage.loadFromLocalStorage(FILTER_KEY).categories;
-    getProductsCategory(category);
-  }
+  renderMarkUpProducts();
 }
 
 async function renderMarkUpProducts() {
   const result = await fetchProducts();
   const markup = createCardsMarkup(result);
-  filters.ulRef.insertAdjacentHTML('beforeend', markup);
-}
-
-async function getProductsCategory(value) {
-  const response = await filters.categories.getProducts({
-    category: value,
-  });
-  const result = await response.results;
-  localStorage.saveToLocalStorage('products', result);
-
-  const keyword = localStorage.loadFromLocalStorage(FILTER_KEY).keyword;
-  if (keyword) {
-    const products = localStorage.loadFromLocalStorage('products');
-    const filteredArr = products.filter(el => {
-      el.name.toLowerCase().includes(keyword);
-    });
-    filters.ulRef.innerHTML = createCardsMarkup(filteredArr);
-    return;
-  }
-  const markup = createCardsMarkup(result);
   filters.ulRef.innerHTML = markup;
 }
 
-function checkStorage() {
-  if (storageSave) {
-    getProductsCategory(storageSave.categories);
-    return;
-  }
-  renderMarkUpProducts();
-}
-
 async function fetchProducts() {
-  const response = await filters.categories.getProducts();
+  const storageSave = localStorage.loadFromLocalStorage(FILTER_KEY);
+  const response = await filters.categories.getProducts({
+    keyword: storageSave.keyword,
+    category: storageSave.categories,
+    limit: 9,
+  });
   const result = await response.results;
   return result;
 }
@@ -138,6 +121,7 @@ async function fetchProducts() {
 filters.categories
   .getProductCategories()
   .then(data => {
+    data.push('Show all');
     return data.map(el => {
       return {
         text: el,
@@ -149,3 +133,9 @@ filters.categories
     const text = getValueCategories();
     filters.select.setData([{ placeholder: true, text: text }, ...data]);
   });
+
+function checkSearchValue() {
+  const keyword = localStorage.loadFromLocalStorage(FILTER_KEY);
+  if (!keyword) return;
+  filters.inputRef.value = keyword.keyword;
+}
