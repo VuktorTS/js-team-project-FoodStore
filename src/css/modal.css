@@ -1,4 +1,8 @@
-.backdrop {
+/*   
+  #modalWindow {
+    display: none;
+  } */
+  .backdrop {
     display: flex;
   justify-content: center;
   align-items: center;
@@ -15,6 +19,9 @@
 
 .modal {
     position: absolute;
+    transform: translate(-50%, -50%);
+    left: 50%;
+         top: 50%;
     padding: 40px 20px;
 max-width: 335px;
 height: 535px;
@@ -22,17 +29,21 @@ border-radius: 20px;
 background-color: var(--third-bg);
 }
 .modal-close-bttn {
-    display: block;
+   position: absolute;
+   display: flex;
+   justify-content: center;
+   align-items: center;
     width: 22px;
 height: 22px;
-margin-top: -26px;
-margin-right: 6px;
-margin-bottom: 4px;
-            margin-left: auto;
+top: 19px;
+right: 19px;
+margin-bottom: 9px;
+    border: none;
+    background-color:var(--color-second-bg);
+    /* background-color:var(---third-bg); */
                content: "";
-               border: 1px solid var(--third-bg);
+               border: none;
                border-radius: 50%;
-               transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1), border 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .modal-icon {
     fill: var(--color-text);
@@ -40,8 +51,7 @@ margin-bottom: 4px;
 
  .modal-content {
     display: flex;
-
-
+margin-bottom: 27px;
  }
 
  .product-icon {
@@ -54,11 +64,10 @@ height: 212px;
     align-items: center;
     justify-content: center;
  }
- .top {
-    width: 295px
- }
+ 
  .description-text {
      width: 295px;
+     height: 54px;
     margin-top: 20px;
     color: rgba(1, 1, 1, 0.70);
     line-height: 1,3em;
@@ -78,6 +87,9 @@ height: 212px;
     font-size: 12px;
     line-height: 1.16em;
   }
+  .details-text:last-child {
+    margin-bottom: 0;
+  }
   .modal-span {
     font-size: 12px;
     line-height: 1.16em;
@@ -87,13 +99,14 @@ height: 212px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: 40px;
  }
  .modal-price {
     color: var(--color-btn-black);
     font-size: 18px;
     line-height: 1,11em;
+    align-self: flex-end;
  }
+ 
  
  .details-list {
     display: flex;
@@ -132,28 +145,27 @@ fill: var(--third-bg);
     padding: 40px;
 }
 .modal-close-bttn {
-    width: 28px;
-    height: 28px;
-    margin-top: -16px;
-margin-right: -16px;
-margin-bottom: -4px;
+    width: 38px;
+    height: 38px;
+    top: 24px;
+    right: 24px;
+    margin-bottom: 0;
 }
 
 .product-icon {
     width: 240px;
 height: 212px; 
 padding: 26px 40px;
-margin: auto;
+
 }
 .modal-content{
   justify-content: space-between;
+  
 }
 
 .top {
-    width: 100%;
     gap: 24px;
     display: flex;
-    margin-bottom: 38px;
   }
   .description-text{
     width: 256px;

@@ -5,3 +5,4 @@ import './js/popular';
 import './js/discount';
 // import './js/footer';
 import './js/cart';
+// import './js/modal';
