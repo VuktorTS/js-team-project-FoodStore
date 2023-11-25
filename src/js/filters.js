@@ -39,6 +39,7 @@ function createCardsMarkup(products) {
 
   return markupCardArray.join('');
 }
+checkStorage();
 
 const filters = {
   categories: new ProductsAPI(),
@@ -138,4 +139,13 @@ function checkSearchValue() {
   const keyword = localStorage.loadFromLocalStorage(FILTER_KEY);
   if (!keyword) return;
   filters.inputRef.value = keyword.keyword;
+}
+
+function checkStorage() {
+  if (!localStorage.loadFromLocalStorage(FILTER_KEY)) {
+    localStorage.saveToLocalStorage(FILTER_KEY, {
+      keyword: null,
+      categories: null,
+    });
+  }
 }
