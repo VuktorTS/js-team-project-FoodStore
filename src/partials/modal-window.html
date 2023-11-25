@@ -1,30 +1,46 @@
-<div class="backdrop visually-hidden">
-  <div id="productModal" class="modal">
-      <button type="button" class="modal-close-bttn" id="closeModal"><svg class="modal-icon" width="28" height="28" >
-          <use href="./images/icons.svg#icon-close"></use>
-      </svg></button>
-      <div class="modal-content">
-<div class="top">
-       <div class="product-icon"></div>
-        <!-- Картки зображень -->
-          <div class="details">
-        <h3 class="details-title">Product</h3>
-        <ul class="details-list">
-        <li class="details-text">Category</li>
-        <li class="details-text">Size</li>
-        <li class="details-text">Popularity</li>
-      </ul>
-        <p class="description-text">Description</p>
-      
-  </div>
-  </div>
-</div>
-
-      <div class="info">
-        <p class="modal-price">Price</p>
-
-        <button class="add-to-cart" type="button" id="addToCart">Add to cart<svg class="bascket" width="18" height="18"><use href="./images/icons.svg#icon-shopping-cart"></use>
-          </svg></button>
+<button class="button" type="button" data-modal-open>Open modal</button>
+<div class="backdrop is-hidden" data-modal>
+  <div class="modal">
+    <button type="button" class="modal-close-btn" data-modal-close>
+      <svg class="modal-close-icon">
+        <use href="./images/icons.svg#icon-close"></use>
+      </svg>
+    </button>
+    <div class="modal-content">
+      <div class="modal-main-row">
+        <div class="modal-image-bg">
+          <img src="./images/image2.png" alt="" class="modal-image" />
+        </div>
+        <div class="modal-description-wrapper">
+          <div class="modal-list-wrapper">
+            <h3 class="modal-product-name">Pumpkin</h3>
+            <ul class="modal-list">
+              <li class="modal-list-item">
+                <p>Category: <span class="modal-span">Fresh Produce</span></p>
+              </li>
+              <li class="modal-list-item">
+                <p>Size: <span class="modal-span">1 medium-sized</span></p>
+              </li>
+              <li class="modal-list-item">
+                <p>Popularity: <span class="modal-span">0</span></p>
+              </li>
+            </ul>
+          </div>
+          <p class="modal-text">
+            A round, orange vegetable with a thick shell and seeds inside. It is
+            often used in cooking and baking for its sweet and earthy flavor.
+          </p>
+        </div>
+      </div>
+      <div class="modal-bottom-row">
+        <h3 class="modal-price">$2.99</h3>
+        <button type="button" class="modal-btn">
+          Add to
+          <svg class="modal-btn-icon">
+            <use href="./images/icons.svg#icon-shopping-cart"></use>
+          </svg>
+        </button>
       </div>
     </div>
+  </div>
 </div>

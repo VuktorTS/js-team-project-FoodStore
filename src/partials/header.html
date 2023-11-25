@@ -1,36 +1,45 @@
 <!-- <p>header</p> -->
 <header class="header container">
   <nav class="header-navigation">
-    <a
-      class="header-logo-img link"
-      href=""
-      aria-label="logo"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      <svg class="logo-icon">
-        <use href="./images/icons.svg#icon-logo"></use>
-      </svg>
-    </a>
-    <a href="" class="header-logo link"> Food Boutique </a>
-  </nav>
-
-  <div class="header-buttons">
-    <ul class="buttons-list">
-      <li class="element-button">
-        <button type="button" class="home-menu-btn">Home</button>
-      </li>
-      <li class="element-button">
-        <button type="button" class="shopping-cart-btn">
-          <svg class="shopping-cart-icon">
-            <use href="./images/icons.svg#icon-shopping-cart"></use>
+    <ul class="header-list">
+      <li class="header-item first">
+        <a
+          class="header-logo-link link"
+          href="index.html"
+          aria-label="logo"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+        <div class="icon-svg">
+          <svg class="logo-icon">
+            <use href="./images/icons.svg#icon-logo"></use>
           </svg>
-        </button>
+        </div>
+          <span href="" class="header-logo link">Food Boutique</span>
+        </a>
+        
+      </li>
+
+      <li class="header-item">
+        <ul class="links-list">
+          <li class="element-link">
+            <a href="index.html" class="home-menu-link">Home</a>
+          </li>
+          <li class="element-link cart">
+            <a href="cart.html" class="shopping-cart-link">
+             
+              <svg class="shopping-cart-icon">
+                <use href="./images/icons.svg#icon-shopping-cart"></use>
+              </svg>
+            
+            </a>
+            <p class="cart-text">
+              Cart
+              <span id="cart-counter" class="cart-counter">(0)</span>
+            </p>
+          </li>
+        </ul>
       </li>
     </ul>
-    <p class="cart-text">
-      Cart
-      <span id="cart-counter" class="cart-counter">0</span>
-    </p>
-  </div>
+  </nav>
 </header>
