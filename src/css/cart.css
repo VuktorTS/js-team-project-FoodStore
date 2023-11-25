@@ -136,7 +136,8 @@ svg.cart-icon {
   right: 10px;
 }
 #my-scrollbar {
-  width: 335px;
+  max-width: 335px;
+  width: 100%;
   height: 426px;
   overflow: auto;
 }
@@ -239,4 +240,12 @@ svg.cart-icon {
 }
 .form-сheckout-btn:is(:hover, :focus) {
   color: var(--color-main-bg);
+}
+@media (min-width: 768px) {
+  #my-scrollbar {
+    max-width: 668px;
+    width: 100%;
+    height: 426px;
+    overflow: auto;
+  }
 }
