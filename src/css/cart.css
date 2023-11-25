@@ -8,7 +8,9 @@
   --color-btn-gray: #e8e8e2;
   --color-btn-black: #010101;
 } */
-
+.cart-section {
+  padding-top: 72px;
+}
 svg.cart-icon {
   fill: var(--color-main-bg);
   width: 18px;
@@ -64,6 +66,16 @@ svg.cart-icon {
   display: flex;
   gap: 20px;
   padding: 30px 0;
+}
+.products-item:before {
+  position: absolute;
+  content: '';
+  left: 0;
+  top: 0;
+  width: 100%;
+  max-width: 343px;
+  height: 1px;
+  background-color: var(--blue-font);
 }
 .product-info-list {
   display: flex;
