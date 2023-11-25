@@ -46,6 +46,7 @@ const filters = {
   formRef: document.querySelector('.form_filters'),
   inputRef: document.querySelector('.filter'),
   ulRef: document.querySelector('.wrapper_card'),
+  notFoundRef: document.querySelector('.notfound_wrapper'),
   select: new SlimSelect({
     events: {
       beforeChange: newVal => {
@@ -105,6 +106,11 @@ function onSubmit(e) {
 async function renderMarkUpProducts() {
   const result = await fetchProducts();
   const markup = createCardsMarkup(result);
+  if (!markup.length) {
+    filters.notFoundRef.classList.remove('hidden');
+    return;
+  }
+  filters.notFoundRef.classList.add('hidden');
   filters.ulRef.innerHTML = markup;
 }
 

@@ -213,6 +213,35 @@
   margin-left: 20px;
 }
 
+.notfound_wrapper {
+  width: 261px;
+  margin: 100px auto 180px auto;
+}
+
+.notfound_title {
+  color: var(--color-btn-black);
+  font-size: 18px;
+  line-height: 1.11;
+  margin-bottom: 14px;
+  text-align: center;
+}
+
+.notfound_title span {
+  color: var(--color-second-bg);
+}
+
+.notfound_subtitle {
+  color: var(--color-text-transparent-second);
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.33;
+  text-align: center;
+}
+
+.hidden {
+  display: none;
+}
+
 @media screen and (min-width: 768px) {
   .wrapper_search {
     max-width: 269px;
@@ -256,5 +285,20 @@
 
   .text_price {
     font-size: 20px;
+  }
+
+  .notfound_wrapper {
+    width: 367px;
+    margin-top: 150px;
+  }
+
+  .notfound_title {
+    font-size: 20px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .notfound_wrapper {
+    margin-top: 200px;
   }
 }
