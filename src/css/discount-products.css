@@ -65,9 +65,6 @@
   justify-content: center;
   align-items: center;
 }
-
-/* .discount-price {
-} */
 .discount-btn {
   display: inline-flex;
   padding: 8px;
@@ -85,6 +82,18 @@
   fill: currentColor;
   width: 18px;
   height: 18px;
+}
+.discount-sticker {
+  width: 60px;
+  height: 60px;
+}
+.discount-item {
+  position: relative;
+}
+.discount-sticker {
+  position: absolute;
+  top: 3px;
+  right: 10px;
 }
 @media (min-width: 768px) {
   .discount-section {
