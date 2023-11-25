@@ -1,4 +1,5 @@
-import {loadFromLocalStorage} from "./local-storage";
+import  storage  from './local-storage';
+import { CART_KEY } from './storage-keys';
 
 const products = 
     [
@@ -73,7 +74,7 @@ const products =
     
     function createCardsMarkup (products) {
         const markupCardArray = products.map(({_id, img, name, category, size, popularity, price} = products) => {
-            const isInCart = loadFromLocalStorage(_id);
+            const isInCart = storage.loadFromLocalStorage(CART_KEY);
 
             const cartSvg = isInCart
                 ? '<svg class="cart_svg" width="18" height="18"><use href="./images/icons.svg#icon-check"></use></svg>'
@@ -82,7 +83,7 @@ const products =
             return `
             <li class="card">
             <div class="bg_img">
-              <img src="${img}" class="img_card" alt="" />
+              <img src="${img}" class="img_card" alt="${name}" />
             </div>
             <div class="text_wrapped">
               <h3 class="text_name_prod">${name}</h3>
@@ -108,10 +109,10 @@ const products =
         return markupCardArray.join('');
     }
     function createModalMarkup (products) {
-        const markupModalArray = products.map(({img, name, category, size, popularity, price, desc} = products) => {
+        const markupModalArray = products.map(({img, name, category, size, popularity, price, desc, _id} = products) => {
         
 
-            const isInCart = loadFromLocalStorage(_id);
+            const isInCart = storage.loadFromLocalStorage(CART_KEY);
 
             const cartSvg = isInCart
                 ? '<svg class="modal-btn-icon" width="18" height="18"><use href="./images/icons.svg#icon-check"></use></svg>'
@@ -166,7 +167,7 @@ const products =
     function createPopularProductsMarkup (products) {
         const markupPopularProductsArray = products.map(({img, name, category, size, popularity} = products) => {
 
-            const isInCart = loadFromLocalStorage(_id);
+            const isInCart = storage.loadFromLocalStorage(CART_KEY);
 
             const cartSvg = isInCart
                 ? '<svg class="popular-bascket" width="28" height="28"><use href="./images/icons.svg#icon-check"></use></svg>'
