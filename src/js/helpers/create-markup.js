@@ -157,4 +157,39 @@ import { CART_KEY } from './storage-keys';
         return markupPopularProductsArray.join('');
     }
     
+
+    function createDiscountProductsMarkup (products) {
+        const markupDiscountProductsArray = products.map(({img, name}) => {
+
+            const isInCart = storage.loadFromLocalStorage(CART_KEY);
+
+            const cartSvg = isInCart
+                ? '<svg class="popular-bascket" width="28" height="28"><use href="./images/icons.svg#icon-check"></use></svg>'
+                : '<svg class="popular-bascket" width="28" height="28"><use href="./images/icons.svg#icon-shopping-cart"></use></svg>';
+
+            return `
+            <li class="discount-item">
+            <div class="discount-image-bg">
+              <img src="${img}" alt="${name}" class="discount-image" />
+            </div>
+            <div class="discount-info">
+              <h3 class="discount-name">${name}</h3>
+              <div class="discount-price-btn-wrapper">
+                <p class="discount-price">${price}</p>
+                <button type="button" class="button discount-btn">
+                  ${cartSvg}
+                </button>
+              </div>
+            </div>
+            <img
+              src="./images/discount.png"
+              alt="discount sticker"
+              class="discount-sticker"
+            />
+          </li>
+            `;
+        });
+    
+        return markupDiscountProductsArray.join('');
+    }
     export {createCardsMarkup, createCartMarkup, createModalMarkup, createPopularProductsMarkup}
