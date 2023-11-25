@@ -52,6 +52,11 @@
                     </li>
                   </ul>
                   <p class="cart-product-price">$8.99</p>
+                  <button type="button" class="cart-delete-btn">
+                    <svg class="icon-delete-product">
+                      <use href="./images/icons.svg#icon-close"></use>
+                    </svg>
+                  </button>
                 </div>
               </li>
               <include src="./partials/cart-products.html"></include>
@@ -77,9 +82,11 @@
               placeholder="Email"
               pattern="[A-Za-z0-9._+\-']+@[A-Za-z0-9.\-]+\.[A-Za-z]{2,}"
             />
+            <span class="input-text">Mail: </span>
           </div>
-          <span class="input-text">Mail: </span>
-          <button type="submit" class="button form-сheckout-btn">Send</button>
+          <button type="submit" class="button form-сheckout-btn">
+            Checkout
+          </button>
         </form>
       </section>
     </main>
