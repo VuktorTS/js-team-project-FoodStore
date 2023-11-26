@@ -2,34 +2,40 @@ import  storage  from './local-storage';
 import { CART_KEY } from './storage-keys';
 
 
+
       function createCartMarkup(products) {
-        const markupCartArray = products.map(({img, name, category, size, price}) => {
+        const markupCartArray = products.map(({img, name, category, size, price, _id}) => {
             return `
-                <li class="products-item">
-                    <div class="cart-product-img-container">
-                        <img
-                            src="${img}"
-                            alt="${name}"
-                        />
-                    </div>
-                    <div class="product-info">
-                        <h3 class="cart-product-name">${name}</h3>
-                        <ul class="product-info-list">
-                            <li class="product-info-item">
-                                <p class="cart-category-text">
-                                    Category:
-                                    <span class="cart-category-name">${category}</span>
-                                </p>
-                            </li>
-                            <li class="product-info-item">
-                                <p class="cart-product-size">
-                                    Size: <span class="cart-product-size-value">${size}</span>
-                                </p>
-                            </li>
-                        </ul>
-                        <p class="cart-product-price">$${price}</p>
-                    </div>
+            <li class="products-item" id="${_id}">
+            <div class="cart-product-img-container">
+              <img
+                src="${img}"
+                alt="${name}"
+              />
+            </div>
+            <div class="product-info">
+              <h3 class="cart-product-name">${name}</h3>
+              <ul class="product-info-list">
+                <li class="product-info-item">
+                  <p class="cart-category-text">
+                    Category:
+                    <span class="cart-category-name">${category}</span>
+                  </p>
                 </li>
+                <li class="product-info-item">
+                  <p class="cart-product-size">
+                    Size: <span class="cart-product-size-value">${size}</span>
+                  </p>
+                </li>
+              </ul>
+              <p class="cart-product-price">${price}</p>
+            </div>
+            <button type="button" data-id="${_id}" class="cart-delete-btn">
+              <svg class="icon-delete-product">
+                <use href="./images/icons.svg#icon-close"></use>
+              </svg>
+            </button>
+          </li>
             `;
         });
     
@@ -37,15 +43,20 @@ import { CART_KEY } from './storage-keys';
     }
     
     function createCardsMarkup (products) {
-        const markupCardArray = products.map(({img, name, category, size, popularity, price}) => {
+        const markupCardArray = products.map(({img, name, category, size, popularity, price, _id}) => {
+           
             const isInCart = storage.loadFromLocalStorage(CART_KEY);
+            let paste = '';
+    
+    
+    if (isInCart && isInCart.some(item => item._id === _id)) {
+      paste = '<svg class="modal-btn-icon" width="18" height="18"><use href="./images/icons.svg#icon-check"></use></svg>';
+    } else {
+      paste = '<svg class="modal-btn-icon" width="18" height="18"><use href="./images/icons.svg#icon-shopping-cart"></use></svg>';
+    }
 
-            const cartSvg = isInCart
-                ? '<svg class="cart_svg" width="18" height="18"><use href="./images/icons.svg#icon-check"></use></svg>'
-                : '<svg class="cart_svg" width="18" height="18"><use href="./images/icons.svg#icon-shopping-cart"></use></svg>';    
-            
             return `
-            <li class="card">
+            <li class="card" id = "${_id}">
             <div class="bg_img">
               <img src="${img}" class="img_card" alt="${name}" />
             </div>
@@ -73,16 +84,20 @@ import { CART_KEY } from './storage-keys';
         return markupCardArray.join('');
     }
     function createModalMarkup (products) {
-        const markupModalArray = products.map(({img, name, category, size, popularity, price, desc}) => {
+        const markupModalArray = products.map(({img, name, category, size, popularity, price, desc, _id}) => {
         
-
             const isInCart = storage.loadFromLocalStorage(CART_KEY);
-
-            const cartSvg = isInCart
-                ? '<svg class="modal-btn-icon" width="18" height="18"><use href="./images/icons.svg#icon-check"></use></svg>'
-                : '<svg class="modal-btn-icon" width="18" height="18"><use href="./images/icons.svg#icon-shopping-cart"></use></svg>';
+            let paste = '';
+    
+    
+    if (isInCart && isInCart.some(item => item._id === _id)) {
+      paste = '<svg class="modal-btn-icon" width="18" height="18"><use href="./images/icons.svg#icon-check"></use></svg>';
+    } else {
+      paste = '<svg class="modal-btn-icon" width="18" height="18"><use href="./images/icons.svg#icon-shopping-cart"></use></svg>';
+    }
+            
             return `
-            <div class="backdrop is-hidden" data-modal>
+            <div class="backdrop is-hidden" data-modal id = "${_id}">
               <div class="modal">
                 <button type="button" class="modal-close-btn" data-modal-close>
                   <svg class="modal-close-icon">
@@ -116,9 +131,9 @@ import { CART_KEY } from './storage-keys';
                   </div>
                   <div class="modal-bottom-row">
                     <h3 class="modal-price">${price}</h3>
-                    <button type="button" class="modal-btn">
+                    <button type="button" class="modal-btn" data-id="${_id}>
                       Add to
-                      ${cartSvg}
+                      ${paste}
                     </button>
                   </div>
                 </div>
@@ -129,16 +144,20 @@ import { CART_KEY } from './storage-keys';
     }
 
     function createPopularProductsMarkup (products) {
-        const markupPopularProductsArray = products.map(({img, name, category, size, popularity}) => {
+        const markupPopularProductsArray = products.map(({img, name, category, size, popularity, _id}) => {
 
             const isInCart = storage.loadFromLocalStorage(CART_KEY);
-
-            const cartSvg = isInCart
-                ? '<svg class="popular-bascket" width="28" height="28"><use href="./images/icons.svg#icon-check"></use></svg>'
-                : '<svg class="popular-bascket" width="28" height="28"><use href="./images/icons.svg#icon-shopping-cart"></use></svg>';
+            let paste = '';
+    
+    
+    if (isInCart && isInCart.some(item => item._id === _id)) {
+      paste = '<svg class="modal-btn-icon" width="18" height="18"><use href="./images/icons.svg#icon-check"></use></svg>';
+    } else {
+      paste = '<svg class="modal-btn-icon" width="18" height="18"><use href="./images/icons.svg#icon-shopping-cart"></use></svg>';
+    }
 
             return `
-            <li class="popular-item"><div class="product-card">
+            <li class="popular-item" id = "${_id}"><div class="product-card">
             <div class="popular-product-icon"><img src="${img}" alt="${name}"></div>
             <!-- Картки зображень -->
             <div class="product-details">
@@ -149,7 +168,7 @@ import { CART_KEY } from './storage-keys';
             <p class="popular-text">Popularity: <span class="popular-span popular-size">${popularity}</span></p>
         </div>
             </div>
-            <button class="add-to-bascket">${cartSvg}</button>
+            <button class="add-to-bascket" data-id="${_id}>${cartSvg}</button>
           </div></li>
             `;
         });
@@ -159,16 +178,19 @@ import { CART_KEY } from './storage-keys';
     
 
     function createDiscountProductsMarkup (products) {
-        const markupDiscountProductsArray = products.map(({img, name}) => {
+        const markupDiscountProductsArray = products.map(({img, name, _id}) => {
 
             const isInCart = storage.loadFromLocalStorage(CART_KEY);
-
-            const cartSvg = isInCart
-                ? '<svg class="popular-bascket" width="28" height="28"><use href="./images/icons.svg#icon-check"></use></svg>'
-                : '<svg class="popular-bascket" width="28" height="28"><use href="./images/icons.svg#icon-shopping-cart"></use></svg>';
-
+            let paste = '';
+    
+    
+    if (isInCart && isInCart.some(item => item._id === _id)) {
+      paste = '<svg class="modal-btn-icon" width="18" height="18"><use href="./images/icons.svg#icon-check"></use></svg>';
+    } else {
+      paste = '<svg class="modal-btn-icon" width="18" height="18"><use href="./images/icons.svg#icon-shopping-cart"></use></svg>';
+    }
             return `
-            <li class="discount-item">
+            <li class="discount-item" id = "${_id}">
             <div class="discount-image-bg">
               <img src="${img}" alt="${name}" class="discount-image" />
             </div>
@@ -176,7 +198,7 @@ import { CART_KEY } from './storage-keys';
               <h3 class="discount-name">${name}</h3>
               <div class="discount-price-btn-wrapper">
                 <p class="discount-price">${price}</p>
-                <button type="button" class="button discount-btn">
+                <button type="button" class="button discount-btn" data-id="${_id}>
                   ${cartSvg}
                 </button>
               </div>
@@ -192,4 +214,4 @@ import { CART_KEY } from './storage-keys';
     
         return markupDiscountProductsArray.join('');
     }
-    export {createCardsMarkup, createCartMarkup, createModalMarkup, createPopularProductsMarkup}
+    export {createCardsMarkup, createCartMarkup, createModalMarkup, createPopularProductsMarkup, createDiscountProductsMarkup}
