@@ -91,14 +91,10 @@ const modal = document.querySelector('.backdrop');
 function onClickPopular(e) {
   const popUpElement = e.target.closest('li');
   if (popUpElement) {
-    fetchById(popUpElement.id)
-      .then(data => {
-        const markUp = modalPopular(data);
-        displayModal(markUp);
-      })
-      .catch(error => {
-        console.error('Error fetching data:', error);
-      });
+    fetchById(popUpElement.id).then(data => {
+      const markUp = modalPopular(data);
+      displayModal(markUp);
+    });
   }
 }
 
