@@ -14,7 +14,7 @@ export class ProductsAPI {
     return response.data;
   }
 
-  async getPopularProducts() {
+  async getPopularProducts(newParametrs) {
     const response = await axios.get('/products/popular', {
       params: {
         ...newParametrs,
