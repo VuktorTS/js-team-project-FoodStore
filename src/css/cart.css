@@ -243,9 +243,30 @@ svg.cart-icon {
 }
 @media (min-width: 768px) {
   #my-scrollbar {
-    max-width: 668px;
+    max-width: 683px;
     width: 100%;
-    height: 426px;
+    height: 442px;
     overflow: auto;
+  }
+  .delete-all {
+    margin-right: 36px;
+  }
+  .total-order {
+    padding: 14px 28px;
+    width: 590px;
+  }
+  .sum-total-product {
+    font-size: 32px;
+    line-height: 1;
+  }
+  .form-сheckout {
+    flex-direction: row;
+  }
+  .input-wrap {
+    max-width: 359px;
+  }
+  .form-сheckout-btn {
+    max-width: 215px;
+    padding: 12px;
   }
 }
