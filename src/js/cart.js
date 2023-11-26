@@ -203,59 +203,17 @@ const data = [
     popularity: 4,
   },
 ];
-
 import {
   saveToLocalStorage,
   loadFromLocalStorage,
 } from './helpers/local-storage';
 import { CART_KEY } from './helpers/storage-keys';
+import { createCartMarkup } from './helpers/create-markup';
 
+const btnDeleteAll = document.querySelector('.delete-btn');
 saveToLocalStorage(CART_KEY, data);
 
-function createCartMarkup(products) {
-  console.log('products: ', products);
-
-  const markupCartArray = products.map(
-    ({ _id, img, name, category, size, price }) => {
-      return `
-<li class="products-item">
-                <div class="cart-product-img-container">
-                  <img
-                    src="${img}"
-                    alt="${name}"
-                  />
-                </div>
-                <div class="product-info">
-                  <h3 class="cart-product-name">${name}</h3>
-                  <ul class="product-info-list">
-                    <li class="product-info-item">
-                      <p class="cart-category-text">
-                        Category:
-                        <span class="cart-category-name">${category}</span>
-                      </p>
-                    </li>
-                    <li class="product-info-item">
-                      <p class="cart-product-size">
-                        Size: <span class="cart-product-size-value">${size}</span>
-                      </p>
-                    </li>
-                  </ul>
-                  <p class="cart-product-price">$ ${price}</p>
-                </div>
-                <button type="button" class="cart-delete-btn">
-                  <svg class="icon-delete-product">
-                    <use href="./images/icons.svg#icon-close"></use>
-                  </svg>
-                </button>
-              </li>
-            `;
-    }
-  );
-
-  return markupCartArray.join('');
-}
 const markupCart = createCartMarkup(data);
-
 productsList.innerHTML = markupCart;
 
 Scrollbar.init(document.querySelector('#my-scrollbar'), {
