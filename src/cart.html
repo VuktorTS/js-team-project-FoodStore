@@ -52,12 +52,12 @@
                     </li>
                   </ul>
                   <p class="cart-product-price">$8.99</p>
-                  <button type="button" class="cart-delete-btn">
-                    <svg class="icon-delete-product">
-                      <use href="./images/icons.svg#icon-close"></use>
-                    </svg>
-                  </button>
                 </div>
+                <button type="button" class="cart-delete-btn">
+                  <svg class="icon-delete-product">
+                    <use href="./images/icons.svg#icon-close"></use>
+                  </svg>
+                </button>
               </li>
               <include src="./partials/cart-products.html"></include>
             </ul>
@@ -70,24 +70,24 @@
                 Sum: <span class="sum-total-product">$12,94</span>
               </p>
             </div>
+            <form class="form-сheckout" autocomplete="off">
+              <div class="input-wrap">
+                <input
+                  required
+                  type="email"
+                  name="useremail"
+                  class="form-сheckout-input"
+                  placeholder="Email"
+                  pattern="[A-Za-z0-9._+\-']+@[A-Za-z0-9.\-]+\.[A-Za-z]{2,}"
+                />
+                <span class="input-text">Mail: </span>
+              </div>
+              <button type="submit" class="button form-сheckout-btn">
+                Checkout
+              </button>
+            </form>
           </div>
         </div>
-        <form class="form-сheckout" autocomplete="off">
-          <div class="input-wrap">
-            <input
-              required
-              type="email"
-              name="useremail"
-              class="form-сheckout-input"
-              placeholder="Email"
-              pattern="[A-Za-z0-9._+\-']+@[A-Za-z0-9.\-]+\.[A-Za-z]{2,}"
-            />
-            <span class="input-text">Mail: </span>
-          </div>
-          <button type="submit" class="button form-сheckout-btn">
-            Checkout
-          </button>
-        </form>
       </section>
     </main>
     <include src="./partials/footer.html"></include>
