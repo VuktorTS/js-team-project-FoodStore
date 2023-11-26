@@ -134,7 +134,7 @@ async function renderDiscounts() {
 function onClickPopular(e) {
   const popUpElement = e.target.closest('li');
   if (popUpElement) {
-    const arr = storage.loadFromLocalStorage(POPULAR_KEY);
+    const arr = loadFromLocalStorage(POPULAR_KEY);
     const selected = arr.find(el => el._id === popUpElement.id);
   }
 }
