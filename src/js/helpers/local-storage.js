@@ -22,8 +22,4 @@ const removeFromLocalStorage = key => {
     console.error('Get state error: ', error.message);
   }
 };
-export default {
-  saveToLocalStorage,
-  loadFromLocalStorage,
-  removeFromLocalStorage,
-};
+export { saveToLocalStorage, loadFromLocalStorage, removeFromLocalStorage };
