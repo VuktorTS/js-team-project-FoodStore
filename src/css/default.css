@@ -48,6 +48,8 @@
   --color-btn-green-dark: #586f1f;
   --color-btn-gray: #e8e8e2;
   --color-btn-black: #010101;
+  --color-text-transparent: rgba(1, 1, 1, 0.3);
+  --color-text-transparent-second: rgba(1, 1, 1, 0.7);
 }
 
 body {
