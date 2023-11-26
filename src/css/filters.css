@@ -54,6 +54,9 @@
   top: 50%;
   transform: translateY(-50%);
 }
+#categories {
+  display: none;
+}
 
 .ss-main {
   border-radius: 30px;
@@ -82,6 +85,10 @@
 
 .ss-main.ss-open-below {
   border-radius: 30px;
+}
+
+.ss-content {
+  border-radius: 15px;
 }
 
 .ss-content .ss-list {
@@ -120,8 +127,119 @@
   color: var(--color-text);
 }
 
+.ss-main.ss-open-above {
+  border-radius: 30px;
+}
+
 .ss-content .ss-list .ss-option:not(.ss-disabled).ss-selected {
   color: var(--color-text);
+}
+
+.wrapper_card {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.card {
+  width: 335px;
+  background-color: var(--third-bg);
+  padding-top: 20px;
+  border-radius: 20px;
+}
+
+.bg_img {
+  width: 295px;
+  height: 178px;
+  background: var(--color-btn-gray);
+  margin: 0 auto;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.text_wrapped {
+  margin-left: 20px;
+  margin-bottom: 40px;
+}
+
+.text_name_prod {
+  color: var(--color-btn-black);
+  font-family: 'Neue Montreal';
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.1;
+  margin-bottom: 10px;
+}
+
+.img_card {
+  width: 140px;
+}
+
+.wrapper_info {
+  display: flex;
+}
+
+.text_title {
+  color: var(--color-text-transparent);
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.16;
+}
+
+.text_subtitle {
+  color: var(--color-btn-black);
+  font-family: Neue Montreal;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.16;
+  margin-left: 4px;
+}
+
+.text_subtitle:not(:last-child) {
+  margin-right: 8px;
+}
+
+.text_price {
+  color: var(--color-btn-black);
+  font-family: Neue Montreal;
+  font-size: 18px;
+  line-height: 1.1;
+}
+
+.wrapper_price {
+  margin-left: 20px;
+}
+
+.notfound_wrapper {
+  width: 261px;
+  margin: 100px auto 180px auto;
+}
+
+.notfound_title {
+  color: var(--color-btn-black);
+  font-size: 18px;
+  line-height: 1.11;
+  margin-bottom: 14px;
+  text-align: center;
+}
+
+.notfound_title span {
+  color: var(--color-second-bg);
+}
+
+.notfound_subtitle {
+  color: var(--color-text-transparent-second);
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.33;
+  text-align: center;
+}
+
+.hidden {
+  display: none;
 }
 
 @media screen and (min-width: 768px) {
@@ -159,5 +277,28 @@
   .ss-content .ss-list .ss-option {
     font-size: 18px;
     line-height: 1.3;
+  }
+
+  .text_name_prod {
+    font-size: 20px;
+  }
+
+  .text_price {
+    font-size: 20px;
+  }
+
+  .notfound_wrapper {
+    width: 367px;
+    margin-top: 150px;
+  }
+
+  .notfound_title {
+    font-size: 20px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .notfound_wrapper {
+    margin-top: 200px;
   }
 }
