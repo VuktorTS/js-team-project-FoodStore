@@ -1,7 +1,7 @@
 import SlimSelect from 'slim-select';
 import { ProductsAPI } from './helpers/food-api';
 import { FILTER_KEY, PRODUCTS_KEY, CATEGORY_KEY } from './helpers/storage-keys';
-import localStorage from './helpers/local-storage';
+import {removeFromLocalStorage, saveToLocalStorage,loadFromLocalStorage} from './helpers/local-storage';
 import 'npm:slim-select/dist/slimselect.css';
 import '../css/index.css';
 
@@ -53,14 +53,14 @@ const filters = {
         const selected = newVal[0].value;
         if (selected === 'Show all') {
           filters.inputRef.value = '';
-          localStorage.saveToLocalStorage(FILTER_KEY, {
+          saveToLocalStorage(FILTER_KEY, {
             keyword: null,
             category: null,
           });
           renderMarkUpProducts();
           return;
         }
-        const storageSave = localStorage.loadFromLocalStorage(FILTER_KEY);
+        const storageSave = loadFromLocalStorage(FILTER_KEY);
         if (selected !== 'Show all') {
           localStorage.saveToLocalStorage(FILTER_KEY, {
             ...storageSave,
@@ -86,17 +86,17 @@ renderMarkUpProducts();
 filters.formRef.addEventListener('submit', onSubmit);
 
 function getValueCategories() {
-  if (!localStorage.loadFromLocalStorage(FILTER_KEY)) {
+  if (!loadFromLocalStorage(FILTER_KEY)) {
     return null;
   }
-  return localStorage.loadFromLocalStorage(FILTER_KEY).category;
+  return loadFromLocalStorage(FILTER_KEY).category;
 }
 
 function onSubmit(e) {
   e.preventDefault();
-  const storageSave = localStorage.loadFromLocalStorage(FILTER_KEY);
+  const storageSave = loadFromLocalStorage(FILTER_KEY);
   const { search } = filters.formRef;
-  localStorage.saveToLocalStorage(FILTER_KEY, {
+  saveToLocalStorage(FILTER_KEY, {
     ...storageSave,
     keyword: search.value,
   });
@@ -105,7 +105,7 @@ function onSubmit(e) {
 
 async function renderMarkUpProducts() {
   const result = await fetchProducts();
-  localStorage.saveToLocalStorage(PRODUCTS_KEY, result);
+  saveToLocalStorage(PRODUCTS_KEY, result);
   const markup = createCardsMarkup(result);
   if (!markup.length) {
     filters.notFoundRef.classList.remove('hidden');
@@ -117,7 +117,7 @@ async function renderMarkUpProducts() {
 }
 
 async function fetchProducts() {
-  const storageSave = localStorage.loadFromLocalStorage(FILTER_KEY);
+  const storageSave = loadFromLocalStorage(FILTER_KEY);
   const response = await filters.categories.getProducts({
     keyword: storageSave.keyword,
     category: storageSave.category,
@@ -127,12 +127,12 @@ async function fetchProducts() {
   return result;
 }
 
-if (!localStorage.loadFromLocalStorage(CATEGORY_KEY)) {
+if (!loadFromLocalStorage(CATEGORY_KEY)) {
   filters.categories
     .getProductCategories()
     .then(data => {
       data.push('Show all');
-      localStorage.saveToLocalStorage(CATEGORY_KEY, data);
+      saveToLocalStorage(CATEGORY_KEY, data);
       return data.map(el => {
         return {
           text: el,
@@ -145,8 +145,8 @@ if (!localStorage.loadFromLocalStorage(CATEGORY_KEY)) {
       filters.select.setData([{ placeholder: true, text: text }, ...data]);
     });
 } else {
-  const category = localStorage.loadFromLocalStorage(CATEGORY_KEY);
-  const text = localStorage.loadFromLocalStorage(FILTER_KEY).category;
+  const category = loadFromLocalStorage(CATEGORY_KEY);
+  const text = loadFromLocalStorage(FILTER_KEY).category;
   const newData = category.map(el => {
     return {
       text: el,
@@ -157,14 +157,14 @@ if (!localStorage.loadFromLocalStorage(CATEGORY_KEY)) {
 }
 
 function checkSearchValue() {
-  const keyword = localStorage.loadFromLocalStorage(FILTER_KEY);
+  const keyword = loadFromLocalStorage(FILTER_KEY);
   if (!keyword) return;
   filters.inputRef.value = keyword.keyword;
 }
 
 function checkStorage() {
-  if (!localStorage.loadFromLocalStorage(FILTER_KEY)) {
-    localStorage.saveToLocalStorage(FILTER_KEY, {
+  if (!loadFromLocalStorage(FILTER_KEY)) {
+    saveToLocalStorage(FILTER_KEY, {
       keyword: null,
       category: null,
     });

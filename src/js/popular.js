@@ -1,6 +1,10 @@
 import { POPULAR_KEY, DISCOUNT_KEY } from './helpers/storage-keys';
 import { ProductsAPI } from './helpers/food-api';
-import storage from './helpers/local-storage';
+import {
+  saveToLocalStorage,
+  loadFromLocalStorage,
+  removeFromLocalStorage,
+} from './helpers/local-storage';
 
 function createPopularProductsMarkup(products) {
   const markupPopularProductsArray = products.map(
@@ -114,7 +118,7 @@ renderDiscounts();
 
 async function renderPopular() {
   const response = await popular.api.getPopularProducts();
-  storage.saveToLocalStorage(POPULAR_KEY, response);
+  saveToLocalStorage(POPULAR_KEY, response);
   const markup = createPopularProductsMarkup(response);
   popular.popularRef.innerHTML = markup;
 }
@@ -122,7 +126,7 @@ async function renderPopular() {
 async function renderDiscounts() {
   const response = await popular.api.getDiscountProducts();
   const result = response.slice(0, 2);
-  storage.saveToLocalStorage(DISCOUNT_KEY, result);
+  saveToLocalStorage(DISCOUNT_KEY, result);
   const markup = createDiscountProductsMarkup(result);
   popular.discountRef.innerHTML = markup;
 }
