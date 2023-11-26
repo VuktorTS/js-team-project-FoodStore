@@ -1,6 +1,6 @@
 import SlimSelect from 'slim-select';
 import { ProductsAPI } from './helpers/food-api';
-import { FILTER_KEY, PRODUCTS_KEY } from './helpers/storage-keys';
+import { FILTER_KEY, PRODUCTS_KEY, CATEGORY_KEY } from './helpers/storage-keys';
 import localStorage from './helpers/local-storage';
 import 'npm:slim-select/dist/slimselect.css';
 import '../css/index.css';
@@ -55,7 +55,7 @@ const filters = {
           filters.inputRef.value = '';
           localStorage.saveToLocalStorage(FILTER_KEY, {
             keyword: null,
-            categories: null,
+            category: null,
           });
           renderMarkUpProducts();
           return;
@@ -64,7 +64,7 @@ const filters = {
         if (selected !== 'Show all') {
           localStorage.saveToLocalStorage(FILTER_KEY, {
             ...storageSave,
-            categories: newVal[0].value,
+            category: newVal[0].value,
           });
         }
         renderMarkUpProducts();
@@ -89,7 +89,7 @@ function getValueCategories() {
   if (!localStorage.loadFromLocalStorage(FILTER_KEY)) {
     return null;
   }
-  return localStorage.loadFromLocalStorage(FILTER_KEY).categories;
+  return localStorage.loadFromLocalStorage(FILTER_KEY).category;
 }
 
 function onSubmit(e) {
@@ -120,28 +120,41 @@ async function fetchProducts() {
   const storageSave = localStorage.loadFromLocalStorage(FILTER_KEY);
   const response = await filters.categories.getProducts({
     keyword: storageSave.keyword,
-    category: storageSave.categories,
+    category: storageSave.category,
     limit: 9,
   });
   const result = await response.results;
   return result;
 }
 
-filters.categories
-  .getProductCategories()
-  .then(data => {
-    data.push('Show all');
-    return data.map(el => {
-      return {
-        text: el,
-        value: el,
-      };
+if (!localStorage.loadFromLocalStorage(CATEGORY_KEY)) {
+  filters.categories
+    .getProductCategories()
+    .then(data => {
+      data.push('Show all');
+      localStorage.saveToLocalStorage(CATEGORY_KEY, data);
+      return data.map(el => {
+        return {
+          text: el,
+          value: el,
+        };
+      });
+    })
+    .then(data => {
+      const text = getValueCategories();
+      filters.select.setData([{ placeholder: true, text: text }, ...data]);
     });
-  })
-  .then(data => {
-    const text = getValueCategories();
-    filters.select.setData([{ placeholder: true, text: text }, ...data]);
+} else {
+  const category = localStorage.loadFromLocalStorage(CATEGORY_KEY);
+  const text = localStorage.loadFromLocalStorage(FILTER_KEY).category;
+  const newData = category.map(el => {
+    return {
+      text: el,
+      value: el,
+    };
   });
+  filters.select.setData([{ placeholder: true, text: text }, ...newData]);
+}
 
 function checkSearchValue() {
   const keyword = localStorage.loadFromLocalStorage(FILTER_KEY);
@@ -153,7 +166,7 @@ function checkStorage() {
   if (!localStorage.loadFromLocalStorage(FILTER_KEY)) {
     localStorage.saveToLocalStorage(FILTER_KEY, {
       keyword: null,
-      categories: null,
+      category: null,
     });
   }
 }
