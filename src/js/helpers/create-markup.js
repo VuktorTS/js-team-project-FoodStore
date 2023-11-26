@@ -1,6 +1,6 @@
-import  storage  from './local-storage';
+import  {loadFromLocalStorage}  from './local-storage';
 import { CART_KEY } from './storage-keys';
-
+import icons from '../../images/icons.svg';
 
 
       function createCartMarkup(products) {
@@ -45,14 +45,14 @@ import { CART_KEY } from './storage-keys';
     function createCardsMarkup (products) {
         const markupCardArray = products.map(({img, name, category, size, popularity, price, _id}) => {
            
-            const isInCart = storage.loadFromLocalStorage(CART_KEY);
+            const isInCart = loadFromLocalStorage(CART_KEY);
             let paste = '';
     
     
     if (isInCart && isInCart.some(item => item._id === _id)) {
-      paste = '<svg class="cart_svg" width="18" height="18"><use href="./images/icons.svg#icon-check"></use></svg>';
+      paste = `<svg class="cart_svg" width="18" height="18"><use href="${icons}#icon-check"></use></svg>`;
     } else {
-      paste = '<svg class="cart_svg" width="18" height="18"><use href="./images/icons.svg#icon-shopping-cart"></use></svg>';
+      paste = `<svg class="cart_svg" width="18" height="18"><use href="${icons}#icon-shopping-cart"></use></svg>`;
     }
 
             return `
@@ -86,14 +86,14 @@ import { CART_KEY } from './storage-keys';
     function createModalMarkup (products) {
         const markupModalArray = products.map(({img, name, category, size, popularity, price, desc, _id}) => {
         
-            const isInCart = storage.loadFromLocalStorage(CART_KEY);
+            const isInCart = loadFromLocalStorage(CART_KEY);
             let paste = '';
     
     
     if (isInCart && isInCart.some(item => item._id === _id)) {
-      paste = '<svg class="modal-btn-icon" width="18" height="18"><use href="./images/icons.svg#icon-check"></use></svg>';
+      paste = `<svg class="cart_svg" width="18" height="18"><use href="${icons}#icon-check"></use></svg>`;
     } else {
-      paste = '<svg class="modal-btn-icon" width="18" height="18"><use href="./images/icons.svg#icon-shopping-cart"></use></svg>';
+      paste = `<svg class="cart_svg" width="18" height="18"><use href="${icons}#icon-shopping-cart"></use></svg>`;
     }
             
             return `
@@ -146,14 +146,14 @@ import { CART_KEY } from './storage-keys';
     function createPopularProductsMarkup (products) {
         const markupPopularProductsArray = products.map(({img, name, category, size, popularity, _id}) => {
 
-            const isInCart = storage.loadFromLocalStorage(CART_KEY);
+            const isInCart = loadFromLocalStorage(CART_KEY);
             let paste = '';
     
     
     if (isInCart && isInCart.some(item => item._id === _id)) {
-      paste = '<svg class="popular-bascket" width="18" height="18"><use href="./images/icons.svg#icon-check"></use></svg>';
+      paste = `<svg class="cart_svg" width="18" height="18"><use href="${icons}#icon-check"></use></svg>`;
     } else {
-      paste = '<svg class="popular-bascket" width="18" height="18"><use href="./images/icons.svg#icon-shopping-cart"></use></svg>';
+      paste = `<svg class="cart_svg" width="18" height="18"><use href="${icons}#icon-shopping-cart"></use></svg>`;
     }
 
             return `
@@ -180,14 +180,14 @@ import { CART_KEY } from './storage-keys';
     function createDiscountProductsMarkup (products) {
         const markupDiscountProductsArray = products.map(({img, name, _id}) => {
 
-            const isInCart = storage.loadFromLocalStorage(CART_KEY);
+            const isInCart = loadFromLocalStorage(CART_KEY);
             let paste = '';
     
     
     if (isInCart && isInCart.some(item => item._id === _id)) {
-      paste = '<svg class="discount-icon" width="18" height="18"><use href="./images/icons.svg#icon-check"></use></svg>';
+      paste = `<svg class="cart_svg" width="18" height="18"><use href="${icons}#icon-check"></use></svg>`;
     } else {
-      paste = '<svg class="discount-icon" width="18" height="18"><use href="./images/icons.svg#icon-shopping-cart"></use></svg>';
+      paste = `<svg class="cart_svg" width="18" height="18"><use href="${icons}#icon-shopping-cart"></use></svg>`;
     }
             return `
             <li class="discount-item" id = "${_id}">
