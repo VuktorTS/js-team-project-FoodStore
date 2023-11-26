@@ -50,9 +50,9 @@ import { CART_KEY } from './storage-keys';
     
     
     if (isInCart && isInCart.some(item => item._id === _id)) {
-      paste = '<svg class="modal-btn-icon" width="18" height="18"><use href="./images/icons.svg#icon-check"></use></svg>';
+      paste = '<svg class="cart_svg" width="18" height="18"><use href="./images/icons.svg#icon-check"></use></svg>';
     } else {
-      paste = '<svg class="modal-btn-icon" width="18" height="18"><use href="./images/icons.svg#icon-shopping-cart"></use></svg>';
+      paste = '<svg class="cart_svg" width="18" height="18"><use href="./images/icons.svg#icon-shopping-cart"></use></svg>';
     }
 
             return `
@@ -74,7 +74,7 @@ import { CART_KEY } from './storage-keys';
             <div class="wrapper_price">
               <span class="text_price">${price}</span>
               <span>
-                ${cartSvg}
+                ${paste}
               </span>
             </div>
           </li>
@@ -151,9 +151,9 @@ import { CART_KEY } from './storage-keys';
     
     
     if (isInCart && isInCart.some(item => item._id === _id)) {
-      paste = '<svg class="modal-btn-icon" width="18" height="18"><use href="./images/icons.svg#icon-check"></use></svg>';
+      paste = '<svg class="popular-bascket" width="18" height="18"><use href="./images/icons.svg#icon-check"></use></svg>';
     } else {
-      paste = '<svg class="modal-btn-icon" width="18" height="18"><use href="./images/icons.svg#icon-shopping-cart"></use></svg>';
+      paste = '<svg class="popular-bascket" width="18" height="18"><use href="./images/icons.svg#icon-shopping-cart"></use></svg>';
     }
 
             return `
@@ -168,7 +168,7 @@ import { CART_KEY } from './storage-keys';
             <p class="popular-text">Popularity: <span class="popular-span popular-size">${popularity}</span></p>
         </div>
             </div>
-            <button class="add-to-bascket" data-id="${_id}>${cartSvg}</button>
+            <button class="add-to-bascket" data-id="${_id}>${paste}</button>
           </div></li>
             `;
         });
@@ -185,9 +185,9 @@ import { CART_KEY } from './storage-keys';
     
     
     if (isInCart && isInCart.some(item => item._id === _id)) {
-      paste = '<svg class="modal-btn-icon" width="18" height="18"><use href="./images/icons.svg#icon-check"></use></svg>';
+      paste = '<svg class="discount-icon" width="18" height="18"><use href="./images/icons.svg#icon-check"></use></svg>';
     } else {
-      paste = '<svg class="modal-btn-icon" width="18" height="18"><use href="./images/icons.svg#icon-shopping-cart"></use></svg>';
+      paste = '<svg class="discount-icon" width="18" height="18"><use href="./images/icons.svg#icon-shopping-cart"></use></svg>';
     }
             return `
             <li class="discount-item" id = "${_id}">
@@ -199,7 +199,7 @@ import { CART_KEY } from './storage-keys';
               <div class="discount-price-btn-wrapper">
                 <p class="discount-price">${price}</p>
                 <button type="button" class="button discount-btn" data-id="${_id}>
-                  ${cartSvg}
+                  ${paste}
                 </button>
               </div>
             </div>
