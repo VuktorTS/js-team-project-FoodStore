@@ -265,18 +265,23 @@ function updateData() {
 function onClickDeleteAll(event) {
   removeFromLocalStorage(CART_KEY);
   updateData();
+  renderProductInCart();
 }
 function onClickDeleteProduct(event) {
   if (!event.target.closest('.cart-delete-btn')) {
     return;
   }
   const idProduct = event.target.closest('button').dataset.id;
+
   const findProduct = loadFromLocalStorage(CART_KEY).filter(
     ({ _id }) => _id !== idProduct
   );
+  console.log('findProduct: ', findProduct);
+
   saveToLocalStorage(CART_KEY, findProduct);
   if (findProduct.length === 0) {
     updateData();
+    renderProductInCart();
   }
   event.target.closest('li').remove();
   updateData();
