@@ -50,11 +50,6 @@ function t(t,e,s,i){Object.defineProperty(t,e,{get:s,set:i,enumerable:!0,configu
           </button>
         </div>
       </div>
-      <img
-        src="./images/discount.png"
-        alt="discount sticker"
-        class="discount-sticker"
-      />
     </li>
       `).join("");e0.discountRef.innerHTML=e}e0.popularRef.addEventListener("click",function(t){let e=t.target.closest("li");e&&(0,f.loadFromLocalStorage)(p.POPULAR_KEY).find(t=>t._id===e.id)}),e1(),e2(),console.log("discount");const e6={formBtn:document.querySelector(".footer-form-btn"),form:document.querySelector(".footer-form")};async function e5(t){t.preventDefault();try{let t=e6.form.elements[0].value,e=new eG,s=await e.subscribeToNewProducts(JSON.stringify({email:t}));e4.alert(`${s.message}`),document.querySelector(".pure-material-button-contained").addEventListener("click",e3)}catch(e){let t=e.response.data.message;e4.alert(t),document.querySelector(".pure-material-button-contained").addEventListener("click",e3)}}e6.formBtn.addEventListener("click",e5);let e4=new function(){this.alert=function(t){document.body.innerHTML=document.body.innerHTML+'<div id="dialogoverlay"></div><div id="dialogbox" class="slit-in-vertical"><div><div id="dialogboxbody"></div><div id="dialogboxfoot"></div></div></div>';let e=document.getElementById("dialogoverlay"),s=document.getElementById("dialogbox"),i=window.innerHeight;e.style.height=i+"px";var n=document.body.clientHeight;s.style.bottom=0-n+1.5*i+"px",e.style.display="block",s.style.display="block",document.getElementById("dialogboxbody").innerHTML=t,document.getElementById("dialogboxfoot").innerHTML='<button class="pure-material-button-contained active">OK</button>'}};function e3(){document.getElementById("dialogbox").style.display="none",document.getElementById("dialogoverlay").style.display="none"}(()=>{let t={openModalBtn:document.querySelector("[data-modal-open]"),closeModalBtn:document.querySelector("[data-modal-close]"),modal:document.querySelector("[data-modal]")};function e(){t.modal.classList.toggle("is-hidden")}t.openModalBtn.addEventListener("click",e),t.closeModalBtn.addEventListener("click",e)})();
-//# sourceMappingURL=index.4439a2a3.js.map
+//# sourceMappingURL=index.e5e5f774.js.map

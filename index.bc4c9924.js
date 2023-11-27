@@ -50,11 +50,6 @@
           </button>
         </div>
       </div>
-      <img
-        src="./images/discount.png"
-        alt="discount sticker"
-        class="discount-sticker"
-      />
     </li>
       `).join("");t0.discountRef.innerHTML=t}t0.popularRef.addEventListener("click",function(e){let t=e.target.closest("li");t&&(0,f.loadFromLocalStorage)(p.POPULAR_KEY).find(e=>e._id===t.id)}),t1(),t2(),console.log("discount");let t6={formBtn:document.querySelector(".footer-form-btn"),form:document.querySelector(".footer-form")};async function t5(e){e.preventDefault();try{let e=t6.form.elements[0].value,t=new tG,s=await t.subscribeToNewProducts(JSON.stringify({email:e}));t4.alert(`${s.message}`),document.querySelector(".pure-material-button-contained").addEventListener("click",t3)}catch(t){let e=t.response.data.message;t4.alert(e),document.querySelector(".pure-material-button-contained").addEventListener("click",t3)}}t6.formBtn.addEventListener("click",t5);let t4=new function(){this.alert=function(e){document.body.innerHTML=document.body.innerHTML+'<div id="dialogoverlay"></div><div id="dialogbox" class="slit-in-vertical"><div><div id="dialogboxbody"></div><div id="dialogboxfoot"></div></div></div>';let t=document.getElementById("dialogoverlay"),s=document.getElementById("dialogbox"),i=window.innerHeight;t.style.height=i+"px";var n=document.body.clientHeight;s.style.bottom=0-n+1.5*i+"px",t.style.display="block",s.style.display="block",document.getElementById("dialogboxbody").innerHTML=e,document.getElementById("dialogboxfoot").innerHTML='<button class="pure-material-button-contained active">OK</button>'}};function t3(){document.getElementById("dialogbox").style.display="none",document.getElementById("dialogoverlay").style.display="none"}(()=>{let e={openModalBtn:document.querySelector("[data-modal-open]"),closeModalBtn:document.querySelector("[data-modal-close]"),modal:document.querySelector("[data-modal]")};function t(){e.modal.classList.toggle("is-hidden")}e.openModalBtn.addEventListener("click",t),e.closeModalBtn.addEventListener("click",t)})()}();
-//# sourceMappingURL=index.8bfaa328.js.map
+//# sourceMappingURL=index.bc4c9924.js.map
