@@ -1,11 +1,11 @@
-import  {loadFromLocalStorage}  from './local-storage';
+import { loadFromLocalStorage } from './local-storage';
 import { CART_KEY } from './storage-keys';
 import icons from '../../images/icons.svg';
 
-
-      function createCartMarkup(products) {
-        const markupCartArray = products.map(({img, name, category, size, price, _id}) => {
-            return `
+function createCartMarkup(products) {
+  const markupCartArray = products.map(
+    ({ img, name, category, size, price, _id }) => {
+      return `
             <li class="products-item" id="${_id}">
             <div class="cart-product-img-container">
               <img
@@ -28,34 +28,34 @@ import icons from '../../images/icons.svg';
                   </p>
                 </li>
               </ul>
-              <p class="cart-product-price">${price}</p>
+              <p class="cart-product-price">$${price}</p>
             </div>
             <button type="button" data-id="${_id}" class="cart-delete-btn">
               <svg class="icon-delete-product">
-                <use href="./images/icons.svg#icon-close"></use>
+                <use href="${icons}#icon-close"></use>
               </svg>
             </button>
           </li>
             `;
-        });
-    
-        return markupCartArray.join('');
     }
-    
-    function createCardsMarkup (products) {
-        const markupCardArray = products.map(({img, name, category, size, popularity, price, _id}) => {
-           
-            const isInCart = loadFromLocalStorage(CART_KEY);
-            let paste = '';
-    
-    
-    if (isInCart && isInCart.some(item => item._id === _id)) {
-      paste = `<svg class="cart_svg" width="18" height="18"><use href="${icons}#icon-check"></use></svg>`;
-    } else {
-      paste = `<svg class="cart_svg" width="18" height="18"><use href="${icons}#icon-shopping-cart"></use></svg>`;
-    }
+  );
 
-            return `
+  return markupCartArray.join('');
+}
+
+function createCardsMarkup(products) {
+  const markupCardArray = products.map(
+    ({ img, name, category, size, popularity, price, _id }) => {
+      const isInCart = loadFromLocalStorage(CART_KEY);
+      let paste = '';
+
+      if (isInCart && isInCart.some(item => item._id === _id)) {
+        paste = `<svg class="cart_svg" width="18" height="18"><use href="${icons}#icon-check"></use></svg>`;
+      } else {
+        paste = `<svg class="cart_svg" width="18" height="18"><use href="${icons}#icon-shopping-cart"></use></svg>`;
+      }
+
+      return `
             <li class="card" id = "${_id}">
             <div class="bg_img">
               <img src="${img}" class="img_card" alt="${name}" />
@@ -79,24 +79,24 @@ import icons from '../../images/icons.svg';
             </div>
           </li>
             `;
-        });
-    
-        return markupCardArray.join('');
     }
-    function createModalMarkup (products) {
-        const markupModalArray = products.map(({img, name, category, size, popularity, price, desc, _id}) => {
-        
-            const isInCart = loadFromLocalStorage(CART_KEY);
-            let paste = '';
-    
-    
-    if (isInCart && isInCart.some(item => item._id === _id)) {
-      paste = `<svg class="cart_svg" width="18" height="18"><use href="${icons}#icon-check"></use></svg>`;
-    } else {
-      paste = `<svg class="cart_svg" width="18" height="18"><use href="${icons}#icon-shopping-cart"></use></svg>`;
-    }
-            
-            return `
+  );
+
+  return markupCardArray.join('');
+}
+function createModalMarkup(products) {
+  const markupModalArray = products.map(
+    ({ img, name, category, size, popularity, price, desc, _id }) => {
+      const isInCart = loadFromLocalStorage(CART_KEY);
+      let paste = '';
+
+      if (isInCart && isInCart.some(item => item._id === _id)) {
+        paste = `<svg class="cart_svg" width="18" height="18"><use href="${icons}#icon-check"></use></svg>`;
+      } else {
+        paste = `<svg class="cart_svg" width="18" height="18"><use href="${icons}#icon-shopping-cart"></use></svg>`;
+      }
+
+      return `
             <div class="backdrop is-hidden" data-modal id = "${_id}">
               <div class="modal">
                 <button type="button" class="modal-close-btn" data-modal-close>
@@ -139,24 +139,24 @@ import icons from '../../images/icons.svg';
                 </div>
               </div>
             `;
-        });
-        return markupModalArray.join('');
     }
+  );
+  return markupModalArray.join('');
+}
 
-    function createPopularProductsMarkup (products) {
-        const markupPopularProductsArray = products.map(({img, name, category, size, popularity, _id}) => {
+function createPopularProductsMarkup(products) {
+  const markupPopularProductsArray = products.map(
+    ({ img, name, category, size, popularity, _id }) => {
+      const isInCart = loadFromLocalStorage(CART_KEY);
+      let paste = '';
 
-            const isInCart = loadFromLocalStorage(CART_KEY);
-            let paste = '';
-    
-    
-    if (isInCart && isInCart.some(item => item._id === _id)) {
-      paste = `<svg class="cart_svg" width="18" height="18"><use href="${icons}#icon-check"></use></svg>`;
-    } else {
-      paste = `<svg class="cart_svg" width="18" height="18"><use href="${icons}#icon-shopping-cart"></use></svg>`;
-    }
+      if (isInCart && isInCart.some(item => item._id === _id)) {
+        paste = `<svg class="cart_svg" width="18" height="18"><use href="${icons}#icon-check"></use></svg>`;
+      } else {
+        paste = `<svg class="cart_svg" width="18" height="18"><use href="${icons}#icon-shopping-cart"></use></svg>`;
+      }
 
-            return `
+      return `
             <li class="popular-item" id = "${_id}"><div class="product-card">
             <div class="popular-product-icon"><img src="${img}" alt="${name}"></div>
             <!-- Картки зображень -->
@@ -171,25 +171,23 @@ import icons from '../../images/icons.svg';
             <button class="add-to-bascket" data-id="${_id}>${paste}</button>
           </div></li>
             `;
-        });
-    
-        return markupPopularProductsArray.join('');
     }
-    
+  );
 
-    function createDiscountProductsMarkup (products) {
-        const markupDiscountProductsArray = products.map(({img, name, _id}) => {
+  return markupPopularProductsArray.join('');
+}
 
-            const isInCart = loadFromLocalStorage(CART_KEY);
-            let paste = '';
-    
-    
+function createDiscountProductsMarkup(products) {
+  const markupDiscountProductsArray = products.map(({ img, name, _id }) => {
+    const isInCart = loadFromLocalStorage(CART_KEY);
+    let paste = '';
+
     if (isInCart && isInCart.some(item => item._id === _id)) {
       paste = `<svg class="cart_svg" width="18" height="18"><use href="${icons}#icon-check"></use></svg>`;
     } else {
       paste = `<svg class="cart_svg" width="18" height="18"><use href="${icons}#icon-shopping-cart"></use></svg>`;
     }
-            return `
+    return `
             <li class="discount-item" id = "${_id}">
             <div class="discount-image-bg">
               <img src="${img}" alt="${name}" class="discount-image" />
@@ -210,8 +208,14 @@ import icons from '../../images/icons.svg';
             />
           </li>
             `;
-        });
-    
-        return markupDiscountProductsArray.join('');
-    }
-    export {createCardsMarkup, createCartMarkup, createModalMarkup, createPopularProductsMarkup, createDiscountProductsMarkup}
+  });
+
+  return markupDiscountProductsArray.join('');
+}
+export {
+  createCardsMarkup,
+  createCartMarkup,
+  createModalMarkup,
+  createPopularProductsMarkup,
+  createDiscountProductsMarkup,
+};

@@ -32,10 +32,30 @@ import { createCartMarkup } from './helpers/create-markup';
 
 const btnDeleteAll = document.querySelector('.delete-btn');
 const btnDeleteProduct = document.querySelector('.delete-btn');
-// saveToLocalStorage(CART_KEY, data);
+const tatalPriceProduct = document.querySelector('.sum-total-product');
 
-const markupCart = createCartMarkup(data);
-productsList.innerHTML = markupCart;
+const arrProducts = loadFromLocalStorage(CART_KEY) ?? [];
+
+function renderProductInCart(products) {
+  const markupCart = createCartMarkup(products);
+  productsList.innerHTML = markupCart;
+}
+function renderTotalPrice() {
+  const arrProducts = loadFromLocalStorage(CART_KEY) ?? [];
+  const totalPrice = totlPrice(arrProducts);
+  tatalPriceProduct.innerHTML = totalPrice;
+}
+function totlPrice(products) {
+  if (!products) {
+    return 0;
+  }
+  return products.reduce((acc, product) => {
+    return (acc += product.price);
+  }, 0);
+}
+renderProductInCart(arrProducts);
+renderTotalPrice();
+console.log(totlPrice([]));
 
 Scrollbar.init(document.querySelector('#my-scrollbar'), {
   alwaysShowTracks: true,
