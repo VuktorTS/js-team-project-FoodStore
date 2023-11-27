@@ -63,16 +63,22 @@ body {
 
 .container {
   margin: 0 auto;
-  max-width: 335px;
+  max-width: 375px;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 @media (min-width: 768px) {
   .container {
-    max-width: 704px;
+    max-width: 768px;
+    padding-left: 32;
+    padding-right: 32px;
   }
 }
 
 @media (min-width: 1440px) {
   .container {
-    max-width: 1240px;
+    max-width: 1440px;
+    padding-left: 100px;
+    padding-right: 100px;
   }
 }

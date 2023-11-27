@@ -1,0 +1,123 @@
+.wrapper_card {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.card {
+  width: 335px;
+  height: 356px;
+  background-color: var(--third-bg);
+  padding: 20px;
+  border-radius: 20px;
+}
+
+.bg_img {
+  width: 100%;
+  height: 178px;
+  background: var(--color-btn-gray);
+  /* margin: 0 auto; */
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.text_wrapped {
+  /* margin-left: 20px; */
+  margin-bottom: 40px;
+}
+
+.text_name_prod {
+  color: var(--color-btn-black);
+  font-family: 'Neue Montreal';
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.1;
+  margin-bottom: 10px;
+}
+
+.img_card {
+  width: 140px;
+  height: 140px;
+}
+
+.wrapper_info {
+  display: flex;
+}
+
+.text_title {
+  color: var(--color-text-transparent);
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.16;
+}
+
+.text_subtitle {
+  color: var(--color-btn-black);
+  font-family: Neue Montreal;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.16;
+  margin-left: 4px;
+}
+
+.text_subtitle:not(:last-child) {
+  margin-right: 8px;
+}
+
+.text_price {
+  color: var(--color-btn-black);
+  font-family: Neue Montreal;
+  font-size: 18px;
+  line-height: 1.1;
+}
+
+/* .wrapper_price {
+  margin-left: 20px;
+}
+*/
+@media (min-width: 768px) {
+  .wrapper_card {
+    gap: 32px;
+  }
+  .card {
+    height: 360px;
+  }
+  .text_name_prod {
+    font-size: 20px;
+    line-height: 1.2;
+  }
+
+  .text_price {
+    font-size: 20px;
+    line-height: 1.2;
+  }
+}
+
+@media (min-width: 1440px) {
+  .wrapper_card {
+    row-gap: 40px;
+    column-gap: 20px;
+    flex-basis: calc(100% - 40px) / 3;
+  }
+
+  .card {
+    width: 295px;
+    height: 363px;
+    background-color: var(--third-bg);
+    padding: 20px;
+    border-radius: 20px;
+  }
+
+  .text_wrapped {
+    /* margin-left: 20px; */
+    margin-bottom: 20px;
+  }
+
+  .wrapper_info {
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
