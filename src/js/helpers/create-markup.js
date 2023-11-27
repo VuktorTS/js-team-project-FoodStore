@@ -89,10 +89,10 @@ function createCardsMarkup(products) {
               </div>
             </div>
             <div class="wrapper_price">
-              <span class="text_price">${price}</span>
-              <span>
+              <span class="text_price">${price}$</span>
+              <button type="button" class="btn_cart">
                 ${paste}
-              </span>
+              </button>
             </div>
           </li>
             `;
