@@ -46,11 +46,6 @@ function createDiscountProductsMarkup(products) {
           </button>
         </div>
       </div>
-      <img
-        src="./images/discount.png"
-        alt="discount sticker"
-        class="discount-sticker"
-      />
     </li>
       `;
     }
