@@ -2,11 +2,14 @@ import { loadFromLocalStorage } from './local-storage';
 import { CART_KEY } from './storage-keys';
 import icons from '../../images/icons.svg';
 import discount from '../../images/discount.png';
+import shoppingBasket from '../../images/yellow-shopping-basket.png';
 
 function createCartMarkup(products) {
-  const markupCartArray = products.map(
-    ({ img, name, category, size, price, _id }) => {
-      return `
+  console.log('products: ', products);
+  if (products.length !== 0) {
+    return products
+      .map(({ img, name, category, size, price, _id }) => {
+        return `
             <li class="products-item" id="${_id}">
             <div class="cart-product-img-container">
               <img
@@ -38,10 +41,24 @@ function createCartMarkup(products) {
             </button>
           </li>
             `;
-    }
-  );
-
-  return markupCartArray.join('');
+      })
+      .join('');
+  } else {
+    return `
+          <div class="cart-empty-product">
+            <img
+              src="${shoppingBasket}"
+              alt="empty"
+              class="cart-epmpty-img"
+            />
+            <p class="cart-empty-title">
+              Your basket is <span class=cart-empty-accent> empty...</span>
+            </p>
+            <p class="cart-empty-text">
+              Go to the main page to select your favorite products and add them to the cart.
+            </p>
+          </div>`;
+  }
 }
 
 function createCardsMarkup(products) {
@@ -85,21 +102,28 @@ function createCardsMarkup(products) {
 
   return markupCardArray.join('');
 }
-function createModalMarkup(products) {
-  const markupModalArray = products.map(
-    ({ img, name, category, size, popularity, price, desc, _id }) => {
-      const isInCart = loadFromLocalStorage(CART_KEY);
-      let paste = '';
+function createModalMarkup({
+  img,
+  name,
+  category,
+  size,
+  popularity,
+  price,
+  desc,
+  _id,
+}) {
+  const isInCart = loadFromLocalStorage(CART_KEY);
+  let paste = '';
 
-      if (isInCart && isInCart.some(item => item._id === _id)) {
-        paste = `<svg class="cart_svg" width="18" height="18"><use href="${icons}#icon-check"></use></svg>`;
-      } else {
-        paste = `<svg class="cart_svg" width="18" height="18"><use href="${icons}#icon-shopping-cart"></use></svg>`;
-      }
+  if (isInCart && isInCart.some(item => item._id === _id)) {
+    paste = `<svg class="cart_svg" width="18" height="18"><use href="${icons}#icon-check"></use></svg>`;
+  } else {
+    paste = `<svg class="cart_svg" width="18" height="18"><use href="${icons}#icon-shopping-cart"></use></svg>`;
+  }
 
-      return `
-            <div class="backdrop is-hidden" data-modal id = "${_id}">
-              <div class="modal">
+  return `
+            
+              <div class="modal" data-modal-id = "${_id}">
                 <button type="button" class="modal-close-btn" data-modal-close>
                   <svg class="modal-close-icon">
                     <use href="${icons}#icon-close"></use>
@@ -138,11 +162,8 @@ function createModalMarkup(products) {
                     </button>
                   </div>
                 </div>
-              </div>
+              
             `;
-    }
-  );
-  return markupModalArray.join('');
 }
 
 function createPopularProductsMarkup(products) {

@@ -1,7 +1,4 @@
-import {
-  saveToLocalStorage,
-  loadFromLocalStorage,
-} from './helpers/local-storage';
+import { loadFromLocalStorage } from './helpers/local-storage';
 import { CART_KEY } from './helpers/storage-keys';
 
 function amountProductsInCart() {
