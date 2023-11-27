@@ -1,7 +1,11 @@
 import SlimSelect from 'slim-select';
 import { ProductsAPI } from './helpers/food-api';
 import { FILTER_KEY, PRODUCTS_KEY, CATEGORY_KEY } from './helpers/storage-keys';
-import {removeFromLocalStorage, saveToLocalStorage,loadFromLocalStorage} from './helpers/local-storage';
+import {
+  removeFromLocalStorage,
+  saveToLocalStorage,
+  loadFromLocalStorage,
+} from './helpers/local-storage';
 import 'npm:slim-select/dist/slimselect.css';
 import '../css/index.css';
 

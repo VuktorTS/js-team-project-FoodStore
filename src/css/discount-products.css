@@ -83,10 +83,7 @@
   width: 18px;
   height: 18px;
 }
-.discount-sticker {
-  width: 60px;
-  height: 60px;
-}
+
 .discount-item {
   position: relative;
 }
@@ -94,7 +91,10 @@
   position: absolute;
   top: 3px;
   right: 10px;
+  width: 60px;
+  height: 60px;
 }
+
 @media (min-width: 768px) {
   .discount-section {
     margin-bottom: 100px;

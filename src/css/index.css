@@ -11,3 +11,49 @@
 @import 'footer.css';
 @import 'cart.css';
 @import 'modal.css';
+
+.products-section {
+  display: flex;
+  flex-direction: column;
+  gap: 80px;
+  justify-content: start;
+  align-items: start;
+}
+
+.productsList {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+.popular-discount-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 80px;
+}
+@media (min-width: 768px) {
+  .products-section {
+    gap: 100px;
+  }
+  .productsList {
+    gap: 40px;
+  }
+  .products-list {
+    margin-bottom: 10px;
+  }
+  .popular-discount-wrapper {
+    gap: 64px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .products-section {
+    flex-direction: row;
+    gap: 40px;
+  }
+  .productsList {
+    gap: 40px;
+  }
+  .popular-discount-wrapper {
+    gap: 40px;
+  }
+}
