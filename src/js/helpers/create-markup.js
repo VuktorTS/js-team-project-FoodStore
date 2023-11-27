@@ -1,6 +1,7 @@
 import { loadFromLocalStorage } from './local-storage';
 import { CART_KEY } from './storage-keys';
 import icons from '../../images/icons.svg';
+import discount from '../../images/discount.png';
 
 function createCartMarkup(products) {
   const markupCartArray = products.map(
@@ -101,7 +102,7 @@ function createModalMarkup(products) {
               <div class="modal">
                 <button type="button" class="modal-close-btn" data-modal-close>
                   <svg class="modal-close-icon">
-                    <use href="./images/icons.svg#icon-close"></use>
+                    <use href="${icons}#icon-close"></use>
                   </svg>
                 </button>
                 <div class="modal-content">
@@ -168,7 +169,7 @@ function createPopularProductsMarkup(products) {
             <p class="popular-text">Popularity: <span class="popular-span popular-size">${popularity}</span></p>
         </div>
             </div>
-            <button class="add-to-bascket" data-id="${_id}>${paste}</button>
+            <button class="add-to-bascket" data-id="${_id}">${paste}</button>
           </div></li>
             `;
     }
@@ -178,16 +179,17 @@ function createPopularProductsMarkup(products) {
 }
 
 function createDiscountProductsMarkup(products) {
-  const markupDiscountProductsArray = products.map(({ img, name, _id }) => {
-    const isInCart = loadFromLocalStorage(CART_KEY);
-    let paste = '';
+  const markupDiscountProductsArray = products.map(
+    ({ img, name, _id, price }) => {
+      const isInCart = loadFromLocalStorage(CART_KEY);
+      let paste = '';
 
-    if (isInCart && isInCart.some(item => item._id === _id)) {
-      paste = `<svg class="cart_svg" width="18" height="18"><use href="${icons}#icon-check"></use></svg>`;
-    } else {
-      paste = `<svg class="cart_svg" width="18" height="18"><use href="${icons}#icon-shopping-cart"></use></svg>`;
-    }
-    return `
+      if (isInCart && isInCart.some(item => item._id === _id)) {
+        paste = `<svg class="cart_svg" width="18" height="18"><use href="${icons}#icon-check"></use></svg>`;
+      } else {
+        paste = `<svg class="cart_svg" width="18" height="18"><use href="${icons}#icon-shopping-cart"></use></svg>`;
+      }
+      return `
             <li class="discount-item" id = "${_id}">
             <div class="discount-image-bg">
               <img src="${img}" alt="${name}" class="discount-image" />
@@ -196,19 +198,20 @@ function createDiscountProductsMarkup(products) {
               <h3 class="discount-name">${name}</h3>
               <div class="discount-price-btn-wrapper">
                 <p class="discount-price">${price}</p>
-                <button type="button" class="button discount-btn" data-id="${_id}>
+                <button type="button" class="button discount-btn" data-id="${_id}">
                   ${paste}
                 </button>
               </div>
             </div>
             <img
-              src="./images/discount.png"
+              src="${discount}"
               alt="discount sticker"
               class="discount-sticker"
             />
           </li>
             `;
-  });
+    }
+  );
 
   return markupDiscountProductsArray.join('');
 }

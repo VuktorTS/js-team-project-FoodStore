@@ -7,7 +7,7 @@
     <title>Food Boutique</title>
   </head>
   <body>
-    <!-- <include src="./partials/header.html"></include> -->
+    <include src="./partials/header.html"></include>
     <main>
       <section class="cart-section container">
         <div class="products-in-basket">
@@ -16,13 +16,15 @@
               <use href="./images/icons.svg#icon-shopping-cart"></use>
             </svg>
           </span>
-          <h2 class="product-counter">CART(<span>0</span>)</h2>
+          <h2 class="product-counter">
+            CART(<span class="amount-product-in-cart">0</span>)
+          </h2>
         </div>
         <div class="product-cart">
           <div class="container-products-cart">
             <div class="delete-all">
               <span class="delete-all-text">Delete all</span>
-              <button class="delete-btn">
+              <button class="delete-btn-all">
                 <svg class="icon-delete-all-product">
                   <use href="./images/icons.svg#icon-close"></use>
                 </svg>
