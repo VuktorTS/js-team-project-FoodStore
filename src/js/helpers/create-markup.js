@@ -5,7 +5,6 @@ import discount from '../../images/discount.png';
 import shoppingBasket from '../../images/yellow-shopping-basket.png';
 
 function createCartMarkup(products) {
-  console.log('products: ', products);
   if (products.length !== 0) {
     return products
       .map(({ img, name, category, size, price, _id }) => {
