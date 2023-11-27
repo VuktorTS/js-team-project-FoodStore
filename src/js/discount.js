@@ -1,1 +1,22 @@
-console.log('discount')
+import { createDiscountProductsMarkup } from './helpers/create-markup';
+import { ProductsAPI } from './helpers/food-api';
+import { saveToLocalStorage } from './helpers/local-storage';
+import { DISCOUNT_KEY } from './helpers/storage-keys';
+import { onClickModal } from './modal';
+
+const discount = {
+  api: new ProductsAPI(),
+  discountRef: document.querySelector('.discount-list'),
+};
+
+discount.discountRef.addEventListener('click', onClickModal);
+
+async function renderDiscounts() {
+  const response = await discount.api.getDiscountProducts();
+  const result = response.slice(0, 2);
+  saveToLocalStorage(DISCOUNT_KEY, result);
+  const markup = createDiscountProductsMarkup(result);
+  discount.discountRef.innerHTML = markup;
+}
+
+renderDiscounts();

@@ -6,6 +6,7 @@ import {
   loadFromLocalStorage,
 } from './helpers/local-storage';
 import { createCardsMarkup } from './helpers/create-markup';
+import { onClickModal } from './modal';
 import 'npm:slim-select/dist/slimselect.css';
 import '../css/index.css';
 
@@ -50,6 +51,7 @@ const filters = {
   }),
 };
 
+filters.ulRef.addEventListener('click', onClickModal);
 checkSearchValue();
 renderMarkUpProducts();
 
