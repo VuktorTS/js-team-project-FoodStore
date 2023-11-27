@@ -1,44 +1,15 @@
 import SlimSelect from 'slim-select';
 import { ProductsAPI } from './helpers/food-api';
 import { FILTER_KEY, PRODUCTS_KEY, CATEGORY_KEY } from './helpers/storage-keys';
-import {removeFromLocalStorage, saveToLocalStorage,loadFromLocalStorage} from './helpers/local-storage';
+import {
+  saveToLocalStorage,
+  loadFromLocalStorage,
+} from './helpers/local-storage';
+import { createCardsMarkup } from './helpers/create-markup';
+import { onClickModal } from './modal';
 import 'npm:slim-select/dist/slimselect.css';
 import '../css/index.css';
 
-function createCardsMarkup(products) {
-  const markupCardArray = products.map(
-    ({ img, name, category, size, popularity, price } = products) => {
-      return `
-      <li class="card">
-      <div class="bg_img">
-        <img src="${img}" class="img_card" alt="" />
-      </div>
-      <div class="text_wrapped">
-        <h3 class="text_name_prod">${name}</h3>
-        <div class="wrapper_info">
-          <p class="text_title">Category:</p>
-          <span class="text_subtitle">${category}</span>
-          <p class="text_title">Size:</p>
-          <span class="text_subtitle">${size}</span>
-          <p class="text_title">Popularity:</p>
-          <span class="text_subtitle">${popularity}</span>
-        </div>
-      </div>
-      <div class="wrapper_price">
-        <span class="text_price">${price}</span>
-        <span>
-          <svg class="cart_svg" width="18" height="18">
-            <use href="./images/icons.svg#icon-shopping-cart"></use>
-          </svg>
-        </span>
-      </div>
-    </li>
-      `;
-    }
-  );
-
-  return markupCardArray.join('');
-}
 checkStorage();
 
 const filters = {
@@ -62,7 +33,7 @@ const filters = {
         }
         const storageSave = loadFromLocalStorage(FILTER_KEY);
         if (selected !== 'Show all') {
-          localStorage.saveToLocalStorage(FILTER_KEY, {
+          saveToLocalStorage(FILTER_KEY, {
             ...storageSave,
             category: newVal[0].value,
           });
@@ -80,6 +51,7 @@ const filters = {
   }),
 };
 
+filters.ulRef.addEventListener('click', onClickModal);
 checkSearchValue();
 renderMarkUpProducts();
 
