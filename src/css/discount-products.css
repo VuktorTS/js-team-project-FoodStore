@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   gap: 20px;
-  margin-bottom: 80px;
+  /* margin-bottom: 80px; */
   justify-content: start;
   align-items: start;
 }
@@ -96,9 +96,6 @@
 }
 
 @media (min-width: 768px) {
-  .discount-section {
-    margin-bottom: 100px;
-  }
   .discount-title {
     font-size: 28px;
     line-height: 1.14;
@@ -116,9 +113,6 @@
   }
 }
 @media (min-width: 1440px) {
-  .discount-section {
-    margin-bottom: 0;
-  }
   .discount-list {
     flex-direction: column;
     gap: 20px;

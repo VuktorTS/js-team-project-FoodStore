@@ -66,7 +66,7 @@ function createCardsMarkup(products) {
                 <p class="text_title">Category:</p>
                 <span class="text_subtitle">${category}</span>
                 <p class="text_title">Size:</p>
-                <span class="text_subtitle">${size}</span>
+                <span class="text_subtitle">${size}</span><br/>
                 <p class="text_title">Popularity:</p>
                 <span class="text_subtitle">${popularity}</span>
               </div>

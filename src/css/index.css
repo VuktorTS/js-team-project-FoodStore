@@ -18,9 +18,10 @@
   gap: 80px;
   justify-content: start;
   align-items: start;
+  padding-bottom: 80px;
 }
 
-.productsList {
+.products-table-wrapper {
   display: flex;
   flex-direction: column;
   gap: 40px;
@@ -33,12 +34,10 @@
 @media (min-width: 768px) {
   .products-section {
     gap: 100px;
+    padding-bottom: 100px;
   }
-  .productsList {
-    gap: 40px;
-  }
-  .products-list {
-    margin-bottom: 10px;
+  .products-table-wrapper {
+    gap: 50px;
   }
   .popular-discount-wrapper {
     gap: 64px;
@@ -49,8 +48,11 @@
   .products-section {
     flex-direction: row;
     gap: 40px;
+    justify-content: start;
+    align-items: start;
+    padding-bottom: 61px;
   }
-  .productsList {
+  .products-table-wrapper {
     gap: 40px;
   }
   .popular-discount-wrapper {

@@ -10,21 +10,22 @@
     <include src="./partials/header.html"></include>
     <main>
       <include src="./partials/hero.html"></include>
-      <section class="products-section container">
-        <div class="productsList">
-          <!-- <ul class="products-list"></ul> -->
-          <include src="./partials/filters.html"></include>
-          <!-- <include src="./partials/pagination.html"></include> -->
-        </div>
-        <div class="popular-discount-wrapper">
-          <include src="./partials/popular-products.html"></include>
-          <include src="./partials/discount-products.html"></include>
+      <include src="./partials/filters.html"></include>
+      <section>
+        <div class="products-section container">
+          <div class="products-table-wrapper">
+            <include src="./partials/products-list.html"></include>
+            <include src="./partials/pagination.html"></include>
+          </div>
+          <div class="popular-discount-wrapper">
+            <include src="./partials/popular-products.html"></include>
+            <include src="./partials/discount-products.html"></include>
+          </div>
         </div>
       </section>
+      <include src="./partials/footer.html"></include>
+      <include src="./partials/modal-window.html"></include>
+      <script type="module" src="index.js"></script>
     </main>
-    <include src="./partials/footer.html"></include>
-    <include src="./partials/modal-window.html"></include>
-
-    <script type="module" src="index.js"></script>
   </body>
 </html>

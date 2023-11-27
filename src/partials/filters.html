@@ -1,34 +1,35 @@
-<section class="filters-section container">
-  <form class="form_filters">
-    <p class="filters_text">Filters:</p>
-    <div class="wrapper-inputs">
-      <label for="search"></label>
-      <div class="wrapper_search">
-        <input
-          placeholder="Search for anything"
-          id="search"
-          class="filter"
-          name="search"
-          type="text"
-        />
-        <button class="search_btn" type="submit">
-          <svg width="20" height="20">
-            <use href="./images/icons.svg#icon-search"></use>
-          </svg>
-        </button>
+<section class="filters-section">
+  <div class="container">
+    <form class="form_filters">
+      <p class="filters_text">Filters:</p>
+      <div class="wrapper-inputs">
+        <label for="search"></label>
+        <div class="wrapper_search">
+          <input
+            placeholder="Search for anything"
+            id="search"
+            class="filter"
+            name="search"
+            type="text"
+          />
+          <button class="search_btn" type="submit">
+            <svg width="20" height="20">
+              <use href="./images/icons.svg#icon-search"></use>
+            </svg>
+          </button>
+        </div>
+        <label for="categories"></label>
+        <select id="categories" name="categories"></select>
       </div>
-      <label for="categories"></label>
-      <select id="categories" name="categories"></select>
+    </form>
+    <div class="notfound_wrapper hidden">
+      <p class="notfound_title">
+        Nothing was found for the selected <span>filters...</span>
+      </p>
+      <p class="notfound_subtitle">
+        Try adjusting your search parameters or browse our range by other
+        criteria to find the perfect product for you.
+      </p>
     </div>
-  </form>
-  <div class="notfound_wrapper hidden">
-    <p class="notfound_title">
-      Nothing was found for the selected <span>filters...</span>
-    </p>
-    <p class="notfound_subtitle">
-      Try adjusting your search parameters or browse our range by other criteria
-      to find the perfect product for you.
-    </p>
   </div>
-  <ul class="products-list wrapper_card"></ul>
 </section>
