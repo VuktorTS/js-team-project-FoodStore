@@ -48,7 +48,7 @@ svg.cart-icon {
   font-size: 14px;
   line-height: 1.29; /* 128.571% */
 }
-.delete-btn {
+.delete-btn-all {
   border: none;
   background-color: transparent;
 }
