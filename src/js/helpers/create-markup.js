@@ -155,7 +155,7 @@ function createModalMarkup({
                   </div>
                   <div class="modal-bottom-row">
                     <h3 class="modal-price">${price}</h3>
-                    <button type="button" class="modal-btn" data-id="${_id}>
+                    <button type="button" class="modal-btn" data-id="${_id}">
                       Add to
                       ${paste}
                     </button>
