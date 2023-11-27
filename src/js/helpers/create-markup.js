@@ -101,7 +101,7 @@ import icons from '../../images/icons.svg';
               <div class="modal">
                 <button type="button" class="modal-close-btn" data-modal-close>
                   <svg class="modal-close-icon">
-                    <use href="./images/icons.svg#icon-close"></use>
+                    <use href="${icons}#icon-close"></use>
                   </svg>
                 </button>
                 <div class="modal-content">
