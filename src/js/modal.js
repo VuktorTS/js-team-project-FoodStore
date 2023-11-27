@@ -33,7 +33,7 @@ function closeModal() {
 
 function onClickModal(e) {
   const popUpElement = e.target.closest('li');
-  if (e.target.tagName === 'BUTTON' || e.target.tagName === 'svg') return;
+  if (e.target.closest('button')) return;
   if (popUpElement) {
     fetchById(popUpElement.id).then(data => {
       console.log('data: ', data);

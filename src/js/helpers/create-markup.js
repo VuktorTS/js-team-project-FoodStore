@@ -135,7 +135,7 @@ function createModalMarkup({
                     </div>
                     <div class="modal-description-wrapper">
                       <div class="modal-list-wrapper">
-                        <h3 class="modal-product-name">Pumpkin</h3>
+                        <h3 class="modal-product-name">${name}</h3>
                         <ul class="modal-list">
                           <li class="modal-list-item">
                             <p>Category: <span class="modal-span">${category}</span></p>
@@ -154,7 +154,7 @@ function createModalMarkup({
                     </div>
                   </div>
                   <div class="modal-bottom-row">
-                    <h3 class="modal-price">${price}</h3>
+                    <h3 class="modal-price">${price}$</h3>
                     <button type="button" class="modal-btn" data-id="${_id}">
                       Add to
                       ${paste}
