@@ -2,7 +2,7 @@ import { createDiscountProductsMarkup } from './helpers/create-markup';
 import { ProductsAPI } from './helpers/food-api';
 import { saveToLocalStorage } from './helpers/local-storage';
 import { DISCOUNT_KEY } from './helpers/storage-keys';
-import { onClickModal } from './modal';
+import { onClickModal } from './helpers/modal';
 
 const discount = {
   api: new ProductsAPI(),

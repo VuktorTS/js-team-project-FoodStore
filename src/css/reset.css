@@ -27,6 +27,8 @@ a {
 button {
   cursor: pointer;
   font-family: inherit;
+  border: none;
+  background-color: transparent;
 }
 
 img {
