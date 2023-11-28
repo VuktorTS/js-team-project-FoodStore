@@ -73,7 +73,7 @@ function createCardsMarkup(products) {
       }
 
       return `
-            <li class="card" id = "${_id}">
+            <li class="card" id="${_id}">
             <div class="bg_img">
               <img src="${img}" class="img_card" alt="${name}" />
             </div>
@@ -89,8 +89,8 @@ function createCardsMarkup(products) {
               </div>
             </div>
             <div class="wrapper_price">
-              <span class="text_price">${price}</span>
-              <span>
+              <span class="text_price">$${price}</span>
+              <span class="products-cart-btn">
                 ${paste}
               </span>
             </div>
@@ -98,7 +98,6 @@ function createCardsMarkup(products) {
             `;
     }
   );
-
   return markupCardArray.join('');
 }
 function createModalMarkup({
@@ -135,7 +134,7 @@ function createModalMarkup({
                     </div>
                     <div class="modal-description-wrapper">
                       <div class="modal-list-wrapper">
-                        <h3 class="modal-product-name">Pumpkin</h3>
+                        <h3 class="modal-product-name">${name}</h3>
                         <ul class="modal-list">
                           <li class="modal-list-item">
                             <p>Category: <span class="modal-span">${category}</span></p>
@@ -154,7 +153,7 @@ function createModalMarkup({
                     </div>
                   </div>
                   <div class="modal-bottom-row">
-                    <h3 class="modal-price">${price}</h3>
+                    <h3 class="modal-price">$${price}</h3>
                     <button type="button" class="modal-btn" data-id="${_id}">
                       Add to
                       ${paste}
@@ -172,15 +171,15 @@ function createPopularProductsMarkup(products) {
       let paste = '';
 
       if (isInCart && isInCart.some(item => item._id === _id)) {
-        paste = `<svg class="cart_svg" width="18" height="18"><use href="${icons}#icon-check"></use></svg>`;
+        paste = `<svg class="popular-basket" width="18" height="18"><use href="${icons}#icon-check"></use></svg>`;
       } else {
-        paste = `<svg class="cart_svg" width="18" height="18"><use href="${icons}#icon-shopping-cart"></use></svg>`;
+        paste = `<svg class="popular-basket" width="18" height="18"><use href="${icons}#icon-shopping-cart"></use></svg>`;
       }
 
       return `
             <li class="popular-item" id = "${_id}"><div class="product-card">
             <div class="popular-product-icon"><img src="${img}" alt="${name}"></div>
-            <!-- Картки зображень -->
+            
             <div class="product-details">
                 <p class="popular-name">${name}</p>
             <p class="popular-text">Category: <span class="popular-span popular-category">${category}</span></p>
@@ -189,7 +188,7 @@ function createPopularProductsMarkup(products) {
             <p class="popular-text">Popularity: <span class="popular-span popular-size">${popularity}</span></p>
         </div>
             </div>
-            <button class="add-to-bascket" data-id="${_id}">${paste}</button>
+            <button class="add-to-basket" data-id="${_id}">${paste}</button>
           </div></li>
             `;
     }

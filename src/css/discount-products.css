@@ -76,7 +76,7 @@
   color: var(--color-main-bg);
 }
 .discount-btn:is(:hover, :focus) {
-  background-color: var(--color-second-bg);
+  background-color: var(--color-btn-green-dark);
 }
 .discount-icon {
   fill: currentColor;
