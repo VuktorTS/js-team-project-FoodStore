@@ -30,6 +30,7 @@
   border-radius: 15px;
   background-color: var(--third-bg);
   border: none;
+  cursor: pointer;
 }
 .discount-image-bg {
   display: flex;
@@ -74,6 +75,7 @@
   background-color: var(--color-second-bg);
   border: none;
   color: var(--color-main-bg);
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .discount-btn:is(:hover, :focus) {
   background-color: var(--color-btn-green-dark);
