@@ -11,7 +11,7 @@ const options = {
   totalItems: 50,
   itemsPerPage: 9,
   visiblePages: 1,
-  page: 1,
+  page: 2,
   centerAlign: true,
   firstItemClassName: 'tui-first-child',
   lastItemClassName: 'tui-last-child',
@@ -74,6 +74,7 @@ const pagination = new Pagination(containerPagination, options);
 //     btn.innerHTML = `<svg width="24" height="24" class="icon-right"><use href='${icons}#icon-right'></use></svg>`;
 //   }
 // });
+
 const leftBtn = document.querySelector('.tui-prev');
 const rightBtn = document.querySelector('.tui-next');
 
