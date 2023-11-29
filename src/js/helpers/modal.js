@@ -1,6 +1,7 @@
 import { ProductsAPI } from './food-api';
 import { createModalMarkup } from './create-markup';
 import { onClickAddedProductInCart } from './on-click';
+import icons from '../../images/icons.svg';
 
 const modal = {
   api: new ProductsAPI(),
@@ -25,6 +26,13 @@ function setupCloseButton() {
   closeBtn.addEventListener('click', onCloseModal);
 }
 function onCloseModal(event) {
+  console.log(event.target.classList.contains('modal-btn'));
+  if (event.target.classList.contains('modal-btn')) {
+    const idProduct = event.target.dataset.id;
+    event.target.innerHTML = `Remove from
+                     <svg class="cart_svg" width="18" height="18"><use href="${icons}#icon-shopping-cart"></use></svg>`;
+    return;
+  }
   if (
     !event.target.classList.contains('backdrop') &&
     !event.target.closest('.modal-close-icon')
