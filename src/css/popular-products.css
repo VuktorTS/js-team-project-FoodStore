@@ -10,8 +10,10 @@
   background-color: transparent;
 }
 .popular-container {
-  display: none;
-  /* display: flex; */
+  /* display: none; */
+  display: flex;
+  width: 335px;
+  height: 546px;
   flex-direction: column;
   gap: 14px;
 }
@@ -96,9 +98,11 @@
     height: 320px;
   }
   .popular-container {
-    max-width: 768px;
-    /* display: flex; */
-    display: none;
+    /* max-width: 768px; */
+    display: flex;
+    width: 563px;
+    height: 320px;
+    /* display: none; */
     flex-direction: row;
     flex-wrap: wrap;
     gap: 13px;
@@ -123,7 +127,9 @@
     height: 542px;
   }
   .popular-container {
-    display: none;
+    width: 275px;
+    height: 542px;
+    /* display: none; */
     flex-direction: column;
   }
 }

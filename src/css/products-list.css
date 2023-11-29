@@ -4,8 +4,10 @@
   background-color: transparent;
 }
 .wrapper_card {
-  display: none;
-  /* display: flex; */
+  /* display: none; */
+  display: flex;
+  width: 335px;
+  height: 732px;
   gap: 20px;
   flex-wrap: wrap;
 }
@@ -110,7 +112,9 @@
   }
   .wrapper_card {
     gap: 32px;
-    display: none;
+    /* display: none; */
+    width: 704px;
+    height: 1536px;
   }
   .card {
     height: 360px;
@@ -134,7 +138,9 @@
   .wrapper_card {
     row-gap: 40px;
     column-gap: 20px;
-    display: none;
+    width: 925px;
+    height: 1169px;
+    /* display: none; */
   }
 
   .card {
