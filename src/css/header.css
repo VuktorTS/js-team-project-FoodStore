@@ -7,6 +7,7 @@
   .header-list {
     display: flex;
     justify-content: space-between;
+    align-items: center;
   }
   .header-item {
     display: flex;
@@ -121,32 +122,19 @@
   }
   .header-logo-link {
     display: flex;
-    padding: 12px 21px 13px 15px;
+    
     gap: 8px;
     transition: background-color .25s cubic-bezier(.4, 0, .2, 1);
   }
-  .header-logo-link.link:focus,
-  .header-logo-link.link:hover {
-    background-color: var(--color-second-bg);
-    
-  }
-  .header-logo-link:hover .header-logo,
-  .header-logo-link:focus .header-logo {
-    color: var(--color-main-bg);
-  }
+  
+  
   .header-logo-link:hover .header-logo-link,
   .header-logo-link:focus .header-logo-link {
     background-color: var(--color-main-bg);
-    fill: var(--color-second-bg);
+    /* fill: var(--color-second-bg); */
   }
-  .header-logo-link:hover .icon-svg,
-  .header-logo-link:focus .icon-svg {
-    background-color: var(--color-main-bg);
-  }
-  .header-logo-link:hover .logo-icon,
-  .header-logo-link:focus .logo-icon {
-    fill: var(--color-second-bg);
-  }
+  
+  
 }
 @media screen and (min-width: 767px) {
   .header {
@@ -192,6 +180,7 @@
   .links-list {
     align-items: center;
   }
+  
 }
 
 /*!------------ MOBILE-MAX-------------- */
@@ -314,30 +303,9 @@
   }
   .header-logo-link {
     display: flex;
-    padding: 12px 21px 13px 15px;
+    
     gap: 8px;
     border-radius: 9px;
   }
-  .header-logo-link.link:focus,
-  .header-logo-link.link:hover {
-    background-color: var(--color-second-bg);
-    
-  }
-  .header-logo-link:hover .header-logo,
-  .header-logo-link:focus .header-logo {
-    color: var(--color-main-bg);
-  }
-  .header-logo-link:hover .header-logo-link,
-  .header-logo-link:focus .header-logo-link {
-    background-color: var(--color-main-bg);
-    fill: var(--color-second-bg);
-  }
-  .header-logo-link:hover .icon-svg,
-  .header-logo-link:focus .icon-svg {
-    background-color: var(--color-main-bg);
-  }
-  .header-logo-link:hover .logo-icon,
-  .header-logo-link:focus .logo-icon {
-    fill: var(--color-second-bg);
-  }
+  
 }
