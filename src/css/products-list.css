@@ -1,5 +1,11 @@
+.products-loader-box {
+  width: 335px;
+  height: 732px;
+  background-color: transparent;
+}
 .wrapper_card {
-  display: flex;
+  display: none;
+  /* display: flex; */
   gap: 20px;
   flex-wrap: wrap;
 }
@@ -98,8 +104,13 @@
   background-color: var(--color-btn-green-dark);
 }
 @media (min-width: 768px) {
+  .products-loader-box {
+    width: 704px;
+    height: 1536px;
+  }
   .wrapper_card {
     gap: 32px;
+    display: none;
   }
   .card {
     height: 360px;
@@ -116,9 +127,14 @@
 }
 
 @media (min-width: 1440px) {
+  .products-loader-box {
+    width: 925px;
+    height: 1169px;
+  }
   .wrapper_card {
     row-gap: 40px;
     column-gap: 20px;
+    display: none;
   }
 
   .card {

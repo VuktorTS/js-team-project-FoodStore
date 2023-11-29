@@ -1,5 +1,11 @@
+.discount-loader-box {
+  width: 335px;
+  height: 484px;
+  background-color: transparent;
+}
 .discount-section {
-  display: flex;
+  display: none;
+  /* display: flex; */
   flex-direction: column;
   gap: 20px;
   /* margin-bottom: 80px; */
@@ -102,8 +108,13 @@
     font-size: 28px;
     line-height: 1.14;
   }
+  .discount-loader-box {
+    width: 704px;
+    height: 232px;
+  }
   .discount-list {
-    display: flex;
+    /* display: flex; */
+    display: none;
     flex-direction: row;
     gap: 32px;
     flex-wrap: nowrap;
@@ -115,7 +126,12 @@
   }
 }
 @media (min-width: 1440px) {
+  .discount-loader-box {
+    width: 275px;
+    height: 484px;
+  }
   .discount-list {
+    display: none;
     flex-direction: column;
     gap: 20px;
     justify-content: start;
