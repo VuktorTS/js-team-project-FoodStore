@@ -14,7 +14,7 @@ import '../css/index.css';
 
 checkStorage();
 
-const filters = {
+export const filters = {
   categories: new ProductsAPI(),
   formRef: document.querySelector('.form_filters'),
   inputRef: document.querySelector('.filter'),
