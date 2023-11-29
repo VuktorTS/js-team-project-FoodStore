@@ -3,11 +3,13 @@ import { ProductsAPI } from './helpers/food-api';
 import { FILTER_KEY, PRODUCTS_KEY, CATEGORY_KEY } from './helpers/storage-keys';
 import {
   removeFromLocalStorage,
+  saveUniqueElements,
   saveToLocalStorage,
   loadFromLocalStorage,
 } from './helpers/local-storage';
 import { createCardsMarkup } from './helpers/create-markup';
-import { onClickModal } from './modal';
+import { onClickModal } from './helpers/modal';
+import { onClickAddedProductInCart } from './helpers/on-click';
 import 'npm:slim-select/dist/slimselect.css';
 import '../css/index.css';
 
@@ -78,7 +80,7 @@ function onSubmit(e) {
 
 async function renderMarkUpProducts() {
   const result = await fetchProducts();
-  saveToLocalStorage(PRODUCTS_KEY, result);
+  saveUniqueElements(PRODUCTS_KEY, result);
   const markup = createCardsMarkup(result);
   if (!markup.length) {
     filters.notFoundRef.classList.remove('hidden');
@@ -105,7 +107,7 @@ if (!loadFromLocalStorage(CATEGORY_KEY)) {
     .getProductCategories()
     .then(data => {
       data.push('Show all');
-      saveToLocalStorage(CATEGORY_KEY, data);
+      saveUniqueElements(CATEGORY_KEY, data);
       return data.map(el => {
         return {
           text: el,

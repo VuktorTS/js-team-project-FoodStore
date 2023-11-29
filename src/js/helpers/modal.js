@@ -1,5 +1,6 @@
-import { ProductsAPI } from './helpers/food-api';
-import { createModalMarkup } from './helpers/create-markup';
+import { ProductsAPI } from './food-api';
+import { createModalMarkup } from './create-markup';
+import { onClickAddedProductInCart } from './on-click';
 
 const modal = {
   api: new ProductsAPI(),
@@ -20,27 +21,37 @@ function displayModal(markUp) {
 }
 
 function setupCloseButton() {
-  const closeBtn = document.querySelector('.modal-close-btn');
-  closeBtn.addEventListener('click', () => {
-    closeModal();
-  });
+  const closeBtn = document.querySelector('.backdrop');
+  closeBtn.addEventListener('click', onCloseModal);
+}
+function onCloseModal(event) {
+  if (
+    !event.target.classList.contains('backdrop') &&
+    !event.target.closest('.modal-close-icon')
+  ) {
+    return;
+  }
+  closeModal();
 }
 
 function closeModal() {
+  const closeBtn = document.querySelector('.backdrop');
   modal.wrapperModal.classList.add('is-hidden');
-  modal.wrapperModal.innerHTML = '';
+  closeBtn.removeEventListener('click', onCloseModal);
+  // modal.wrapperModal.innerHTML = '';
 }
 
 function onClickModal(e) {
   const popUpElement = e.target.closest('li');
-  if (popUpElement) {
-    fetchById(popUpElement.id).then(data => {
-      console.log('data: ', data);
 
+  if (!e.target.closest('.js-btn') && popUpElement) {
+    fetchById(popUpElement.id).then(data => {
       const markUp = createModalMarkup(data);
-      console.log('markUp: ', markUp);
       displayModal(markUp);
     });
+  }
+  if (e.target.closest('.js-btn') && popUpElement) {
+    onClickAddedProductInCart(e);
   }
 }
 
