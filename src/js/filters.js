@@ -95,7 +95,7 @@ async function fetchProducts() {
   const response = await filters.categories.getProducts({
     keyword: storageSave.keyword,
     category: storageSave.category,
-    limit: 9,
+    limit: window.innerWidth < 768 ? 6 : window.innerWidth < 1440 ? 8 : 9,
   });
   const result = await response.results;
   return result;

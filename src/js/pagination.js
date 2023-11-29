@@ -9,14 +9,12 @@ import { createCardsMarkup } from './helpers/create-markup';
 const containerPagination = document.getElementById('pagination');
 
 getPaginationPages();
-const leftBtn = document.querySelector('.tui-prev');
-const rightBtn = document.querySelector('.tui-next');
 
 async function getPaginationPages() {
   const api = new ProductsAPI();
 
   const getTotalItems = await api.getProducts();
-  console.log(getTotalItems);
+  // console.log(getTotalItems);
   const itemsPerPageSum = getTotalItems.perPage * getTotalItems.totalPages;
   const limit = setLimit();
 
@@ -94,6 +92,6 @@ function setLimit() {
     return limit;
   }
 }
-leftBtn.innerHTML = `<svg width="24" height="24" class="icon-left"><use href='${icons}#icon-left'></use></svg>`;
+// leftBtn.innerHTML = `<svg width="24" height="24" class="icon-left"><use href='${icons}#icon-left'></use></svg>`;
 
-rightBtn.innerHTML = `<svg width="24" height="24" class="icon-right"><use href='${icons}#icon-right'></use></svg>`;
+// rightBtn.innerHTML = `<svg width="24" height="24" class="icon-right"><use href='${icons}#icon-right'></use></svg>`;

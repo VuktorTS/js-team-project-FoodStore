@@ -1,13 +1,13 @@
 .products-loader-box {
   width: 335px;
-  height: 732px;
+  height: 2236px;
   background-color: transparent;
 }
 .wrapper_card {
   /* display: none; */
   display: flex;
   width: 335px;
-  height: 732px;
+  height: 2236px;
   gap: 20px;
   flex-wrap: wrap;
 }
