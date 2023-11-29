@@ -17,12 +17,41 @@ const options = {
   lastItemClassName: 'tui-last-child',
   template: {
     page: '<a href="#" class="tui-page-btn">{{page}}</a>',
-    currentPage:
-      '<strong class="tui-page-btn tui-is-selected">{{page}}</strong>',
+    currentPage: '<div class="tui-page-btn tui-is-selected">{{page}}</div>',
     moveButton:
       '<a href="#" class="tui-page-btn tui-{{type}}">' +
       '<span class="tui-ico-{{type}}">{{type}}</span>' +
       '</a>',
+
+    // type => {
+    //   let template = '';
+    //   if (type === 'first') {
+    //     template =
+    //       '<a href="#" class="tui-page-btn tui-{{type}}">' +
+    //       '<span class="tui-ico-{{type}}">{{type}}</span>' +
+    //       '</a>';
+    //   }
+    //   if (type === 'last') {
+    //     template =
+    //       '<a href="#" class="tui-page-btn tui-{{type}}">' +
+    //       '<span class="tui-ico-{{type}}">{{type}}</span>' +
+    //       '</a>';
+    //   }
+    //   if (type === 'prev') {
+    //     template =
+    //       '<a href="#" class="tui-page-btn tui-{{type}}">' +
+    //       `<svg width="24" height="24" class="icon-left"><use href='${icons}#icon-left'></use></svg>` +
+    //       '</a>';
+    //   }
+    //   if (type === 'next') {
+    //     template =
+    //       '<a href="#" class="tui-page-btn tui-{{type}}">' +
+    //       `<svg width="24" height="24" class="icon-right"><use href='${icons}#icon-right'></use></svg>` +
+    //       '</a>';
+    //   }
+
+    //   return template;
+    // }
     disabledMoveButton:
       '<span class="tui-page-btn tui-is-disabled tui-{{type}}">' +
       '<span class="tui-ico-{{type}}">{{type}}</span>' +
@@ -35,7 +64,7 @@ const options = {
 };
 const pagination = new Pagination(containerPagination, options);
 
-const paginationBtns = document.querySelectorAll('.tui-page-btn');
+// const paginationBtns = document.querySelectorAll('.tui-page-btn');
 // console.log(paginationBtns);
 // [...paginationBtns].map(btn => {
 //   if (btn.classList.contains('.tui-prev')) {

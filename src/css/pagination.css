@@ -63,30 +63,35 @@
 .tui-last  */
 .pagination {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  width: 472px;
-  height: 40px;
+
   box-sizing: border-box;
   font-family: 'Neue Montreal', sans-serif;
+  gap: 8px;
 }
 .tui-page-btn {
   display: flex;
   padding: 8px;
+  width: 40px;
+  height: 40px;
   justify-content: center;
   align-items: center;
-  gap: 2px;
   border-radius: 50%;
   border: none;
   background-color: var(--third-bg);
   color: var(--color-second-text);
-  line-height: 20px;
+  line-height: 1.43;
   font-size: 14px;
   font-weight: 500;
   cursor: pointer;
   transition: all 0.3s ease;
+  text-align: center;
+  font-family: 'Neue Montreal', sans-serif;
 }
-
+.tui-page-btn:is(:hover, :focus, :active) {
+  background-color: var(--color-second-bg);
+}
 .tui-first,
 .tui-last {
   display: none;
@@ -100,4 +105,14 @@
 .icon-right,
 .icon-left {
   fill: currentColor;
+}
+.tui-is-selected {
+  background-color: var(--color-second-bg);
+}
+.tui-first-child {
+  margin-left: 80px;
+}
+
+.tui-last-child {
+  margin-right: 80px;
 }
