@@ -34,9 +34,27 @@ const addPoductInCart = (keyProduct, keyCart, id) => {
     console.error('Get state error: ', error.message);
   }
 };
+const saveUniqueElements = (key, products = []) => {
+  const productStorage = loadFromLocalStorage(key) ?? [];
+
+  if (productStorage.length > 0 && products.length > 0) {
+    const map = new Map(
+      [...products, ...productStorage].map(item => [item._id, item])
+    );
+    const uniqueProducts = [...map.values()];
+    console.log('uniqueProducts: ', uniqueProducts);
+    saveToLocalStorage(key, uniqueProducts);
+  } else if (productStorage.length > 0 && products.length === 0) {
+    saveToLocalStorage(key, productStorage);
+  } else {
+    saveToLocalStorage(key, products);
+  }
+};
+
 export {
   saveToLocalStorage,
   loadFromLocalStorage,
   removeFromLocalStorage,
   addPoductInCart,
+  saveUniqueElements,
 };
