@@ -19,7 +19,7 @@ function createCartMarkup(products) {
             <div class="product-info">
             <div class="cart-product-name-container">
               <h3 class="cart-product-name">${name}</h3>
-              <button type="button" aria-label="delete-item" data-id="${_id}" class="cart-delete-btn">
+              <button type="button" id="add" aria-label="delete-item" data-id="${_id}" class="cart-delete-btn">
               <svg class="icon-delete-product">
                 <use href="${icons}#icon-close"></use>
               </svg>
@@ -94,7 +94,7 @@ function createCardsMarkup(products) {
             </div>
             <div class="wrapper_price">
               <span class="text_price">$${price}</span>
-              <button type="button" aria-label="add-item" data-id="${_id}" data-is-added=${isAddedProduct} class="products-cart-btn js-btn">
+              <button type="button" id="add" aria-label="add-item" data-id="${_id}" data-is-added=${isAddedProduct} class="products-cart-btn js-btn">
                 ${paste}
               </button>
             </div>
@@ -128,7 +128,7 @@ function createModalMarkup({
   return `
             
               <div class="modal" data-modal-id = "${_id}">
-                <button type="button" aria-label="close-modal" class="modal-close-btn" data-modal-close>
+                <button type="button" id="add" aria-label="close-modal" class="modal-close-btn" data-modal-close>
                   <svg class="modal-close-icon">
                     <use href="${icons}#icon-close"></use>
                   </svg>
@@ -160,7 +160,7 @@ function createModalMarkup({
                   </div>
                   <div class="modal-bottom-row">
                     <h3 class="modal-price">$${price}</h3>
-                    <button type="button" class="modal-btn js-btn" data-is-added=${isProductAdded} data-id="${_id}">
+                    <button type="button" id="add" aria-label="add-modal" class="modal-btn js-btn" data-is-added=${isProductAdded} data-id="${_id}">
                       ${textBtnisProductAdded}
                      <svg class="cart_svg" width="18" height="18"><use href="${icons}#icon-shopping-cart"></use></svg>
                     </button>
@@ -198,7 +198,7 @@ function createPopularProductsMarkup(products) {
             <p class="popular-text">Popularity: <span class="popular-span popular-size">${popularity}</span></p>
         </div>
             </div>
-            <button class="${isAddToCart} js-btn" aria-label="popular-add-item" data-is-added=${isAddedProduct} data-id="${_id}">${paste}</button>
+            <button class="${isAddToCart} js-btn" id="add" aria-label="popular-add-item" data-is-added=${isAddedProduct} data-id="${_id}">${paste}</button>
           </div></li>
             `;
     }
@@ -229,7 +229,7 @@ function createDiscountProductsMarkup(products) {
               <h3 class="discount-name">${name}</h3>
               <div class="discount-price-btn-wrapper">
                 <p class="discount-price">${price}</p>
-                <button type="button" aria-label="discount-add-item" class="button discount-btn js-btn" data-is-added=${isAddedProduct} data-id="${_id}">
+                <button type="button" id="add" aria-label="discount-add-item" class="button discount-btn js-btn" data-is-added=${isAddedProduct} data-id="${_id}">
                   ${paste}
                 </button>
               </div>
