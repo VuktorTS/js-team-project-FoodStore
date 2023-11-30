@@ -8,6 +8,8 @@ function createCartMarkup(products) {
   if (products.length !== 0) {
     return products
       .map(({ img, name, category, size, price, _id }) => {
+        let simple_id = 0;
+        let unic_id = simple_id + 1;
         return `
             <li class="products-item" id="${_id}">
             <div class="cart-product-img-container">
@@ -19,7 +21,7 @@ function createCartMarkup(products) {
             <div class="product-info">
             <div class="cart-product-name-container">
               <h3 class="cart-product-name">${name}</h3>
-              <button type="button" aria-label="delete-item" data-id="${_id}" class="cart-delete-btn">
+              <button type="button" id="${unic_id}" aria-label="delete-item" data-id="${_id}" class="cart-delete-btn">
               <svg class="icon-delete-product">
                 <use href="${icons}#icon-close"></use>
               </svg>
