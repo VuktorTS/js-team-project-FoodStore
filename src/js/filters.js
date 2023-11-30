@@ -102,9 +102,10 @@ async function fetchProducts() {
     keyword: storageSave.keyword,
     category: storageSave.category,
     limit: window.innerWidth < 768 ? 6 : window.innerWidth < 1440 ? 8 : 9,
-    // page: storageSave.page,
+    page: 1,
   });
   const result = await response.results;
+
   return result;
 }
 
@@ -145,6 +146,7 @@ function checkSearchValue() {
 
 function checkStorage() {
   if (!loadFromLocalStorage(FILTER_KEY)) {
+    console.log('bed');
     saveToLocalStorage(FILTER_KEY, {
       keyword: null,
       category: null,
