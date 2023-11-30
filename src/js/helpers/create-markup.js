@@ -5,11 +5,12 @@ import discount from '../../images/discount.png';
 import shoppingBasket from '../../images/yellow-shopping-basket.png';
 
 function createCartMarkup(products) {
+  let unic_id = 100;
   if (products.length !== 0) {
     return products
       .map(({ img, name, category, size, price, _id }) => {
-        let simple_id = 0;
-        let unic_id = simple_id + 1;
+        
+        unic_id += 1;
         return `
             <li class="products-item" id="${_id}">
             <div class="cart-product-img-container">
@@ -65,11 +66,13 @@ function createCartMarkup(products) {
 }
 
 function createCardsMarkup(products) {
+  let unic_id = 200;
   const markupCardArray = products.map(
     ({ img, name, category, size, popularity, price, _id }) => {
       const isInCart = loadFromLocalStorage(CART_KEY);
       let paste = '';
       let isAddedProduct = true;
+      unic_id += 1;
 
       if (isInCart && isInCart.some(item => item._id === _id)) {
         paste = `<svg class="cart_svg" width="18" height="18"><use href="${icons}#icon-check"></use></svg>`;
@@ -96,7 +99,7 @@ function createCardsMarkup(products) {
             </div>
             <div class="wrapper_price">
               <span class="text_price">$${price}</span>
-              <button type="button" id="add" aria-label="add-item" data-id="${_id}" data-is-added=${isAddedProduct} class="products-cart-btn js-btn">
+              <button type="button" id="${unic_id}" aria-label="add-item" data-id="${_id}" data-is-added=${isAddedProduct} class="products-cart-btn js-btn">
                 ${paste}
               </button>
             </div>
@@ -116,6 +119,7 @@ function createModalMarkup({
   desc,
   _id,
 }) {
+  let unic_id = 300;
   const isInCart = loadFromLocalStorage(CART_KEY);
   let isProductAdded = true;
   let textBtnisProductAdded = 'Add to';
@@ -126,11 +130,11 @@ function createModalMarkup({
     textBtnisProductAdded = 'Add to';
     isProductAdded = false;
   }
-
+  unic_id += 1;
   return `
             
               <div class="modal" data-modal-id = "${_id}">
-                <button type="button" id="add" aria-label="close-modal" class="modal-close-btn" data-modal-close>
+                <button type="button" id="${unic_id}" aria-label="close-modal" class="modal-close-btn" data-modal-close>
                   <svg class="modal-close-icon">
                     <use href="${icons}#icon-close"></use>
                   </svg>
@@ -173,13 +177,14 @@ function createModalMarkup({
 }
 
 function createPopularProductsMarkup(products) {
+  let unic_id = 400;
   const markupPopularProductsArray = products.map(
     ({ img, name, category, size, popularity, _id }) => {
       const isInCart = loadFromLocalStorage(CART_KEY);
       let paste = '';
       let isAddToCart = 'add-to-basket';
       let isAddedProduct = true;
-
+      unic_id += 1;
       if (isInCart && isInCart.some(item => item._id === _id)) {
         paste = `<svg class="popular-basket" width="18" height="18"><use href="${icons}#icon-check"></use></svg>`;
         isAddToCart += ' add';
@@ -200,7 +205,7 @@ function createPopularProductsMarkup(products) {
             <p class="popular-text">Popularity: <span class="popular-span popular-size">${popularity}</span></p>
         </div>
             </div>
-            <button class="${isAddToCart} js-btn" id="add" aria-label="popular-add-item" data-is-added=${isAddedProduct} data-id="${_id}">${paste}</button>
+            <button class="${isAddToCart} js-btn" id="${unic_id}" aria-label="popular-add-item" data-is-added=${isAddedProduct} data-id="${_id}">${paste}</button>
           </div></li>
             `;
     }
@@ -210,8 +215,10 @@ function createPopularProductsMarkup(products) {
 }
 
 function createDiscountProductsMarkup(products) {
+  let unic_id = 500;
   const markupDiscountProductsArray = products.map(
     ({ img, name, _id, price }) => {
+      unic_id += 1;
       const isInCart = loadFromLocalStorage(CART_KEY);
       let paste = '';
       let isAddedProduct = true;
@@ -231,7 +238,7 @@ function createDiscountProductsMarkup(products) {
               <h3 class="discount-name">${name}</h3>
               <div class="discount-price-btn-wrapper">
                 <p class="discount-price">${price}</p>
-                <button type="button" id="add" aria-label="discount-add-item" class="button discount-btn js-btn" data-is-added=${isAddedProduct} data-id="${_id}">
+                <button type="button" id="${unic_id}" aria-label="discount-add-item" class="button discount-btn js-btn" data-is-added=${isAddedProduct} data-id="${_id}">
                   ${paste}
                 </button>
               </div>
