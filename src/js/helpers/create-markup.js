@@ -19,7 +19,7 @@ function createCartMarkup(products) {
             <div class="product-info">
             <div class="cart-product-name-container">
               <h3 class="cart-product-name">${name}</h3>
-              <button type="button" id="add" aria-label="delete-item" data-id="${_id}" class="cart-delete-btn">
+              <button type="button" aria-label="delete-item" data-id="${_id}" class="cart-delete-btn">
               <svg class="icon-delete-product">
                 <use href="${icons}#icon-close"></use>
               </svg>
