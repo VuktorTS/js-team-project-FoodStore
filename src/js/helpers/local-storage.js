@@ -42,7 +42,6 @@ const saveUniqueElements = (key, products = []) => {
       [...products, ...productStorage].map(item => [item._id, item])
     );
     const uniqueProducts = [...map.values()];
-    console.log('uniqueProducts: ', uniqueProducts);
     saveToLocalStorage(key, uniqueProducts);
   } else if (productStorage.length > 0 && products.length === 0) {
     saveToLocalStorage(key, productStorage);

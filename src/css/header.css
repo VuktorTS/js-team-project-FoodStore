@@ -23,7 +23,6 @@
   .header-logo-link {
     /* width: 28px;
     height: 28px; */
-    border-radius: 9px;
     align-items: center;
     justify-content: center;
   }
@@ -163,7 +162,7 @@
   }
   .shopping-cart-icon {
     width: 18px;
-    width: 18px;
+    height: 18px;
   }
   .shopping-cart-link {
     padding: 10px;

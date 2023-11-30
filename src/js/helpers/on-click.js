@@ -1,26 +1,47 @@
 import { loadFromLocalStorage, saveToLocalStorage } from './local-storage';
 import { CART_KEY, PRODUCTS_KEY } from './storage-keys';
 import { amountProductsInCart } from '../header';
+import icons from '../../images/icons.svg';
 
 function onClickAddedProductInCart(event) {
   const jsBtn = event.target.closest('.js-btn');
-  console.log('jsBtn: ', jsBtn);
   const idProduct = jsBtn.dataset.id;
-  console.log('idProduct: ', idProduct);
   const isAddedCart = jsBtn.dataset.isAdded;
-  console.log('isAddedCart: ', isAddedCart);
+
   if (!JSON.parse(isAddedCart)) {
+    const allBtnAddedCart = document.querySelectorAll(
+      `[data-id="${idProduct}"]`
+    );
+    allBtnAddedCart.forEach(
+      buttonChangeInnerHtml =>
+        (buttonChangeInnerHtml.innerHTML = `<svg class="cart_svg" width="18" height="18"><use href="${icons}#icon-check"></use></svg>`)
+    );
+
     const product = loadFromLocalStorage(PRODUCTS_KEY).filter(
       ({ _id }) => idProduct === _id
     );
-    console.log('product: ', product);
     const productsCart = loadFromLocalStorage(CART_KEY) ?? [];
     productsCart.push(product[0]);
 
     saveToLocalStorage(CART_KEY, productsCart);
     amountProductsInCart();
     jsBtn.dataset.isAdded = true;
-    jsBtn.innerHtml = '';
+  } else {
+    const allBtnAddedCart = document.querySelectorAll(
+      `[data-id="${idProduct}"]`
+    );
+    allBtnAddedCart.forEach(
+      buttonChangeInnerHtml =>
+        (buttonChangeInnerHtml.innerHTML = `<svg class="cart_svg" width="18" height="18"><use href="${icons}#icon-shopping-cart"></use></svg>`)
+    );
+
+    jsBtn.dataset.isAdded = false;
+    const product = loadFromLocalStorage(CART_KEY).filter(
+      ({ _id }) => idProduct !== _id
+    );
+
+    saveToLocalStorage(CART_KEY, product);
+    amountProductsInCart();
   }
 }
 
