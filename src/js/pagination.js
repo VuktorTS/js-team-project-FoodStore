@@ -5,24 +5,30 @@ import '../css/pagination.css';
 import icons from '../images/icons.svg';
 import { ProductsAPI } from './helpers/food-api';
 import { filters } from './filters';
+import { FILTER_KEY, PRODUCTS_KEY } from './helpers/storage-keys';
+import {
+  saveUniqueElements,
+  loadFromLocalStorage,
+  saveToLocalStorage,
+} from './helpers/local-storage';
 import { createCardsMarkup } from './helpers/create-markup';
 const containerPagination = document.getElementById('pagination');
 
 getPaginationPages();
+let pagination = '';
 
 async function getPaginationPages() {
   const api = new ProductsAPI();
-
   const getTotalItems = await api.getProducts();
   // console.log(getTotalItems);
   const itemsPerPageSum = getTotalItems.perPage * getTotalItems.totalPages;
   const limit = setLimit();
-
+  const page = loadFromLocalStorage(FILTER_KEY).page;
   const options = {
     totalItems: itemsPerPageSum / limit,
     itemsPerPage: 1,
     visiblePages: window.innerWidth < 768 ? 2 : 3,
-    page: 1,
+    page: page,
     currentPage: 1,
     centerAlign: false,
     firstItemClassName: 'tui-first-child',
@@ -49,7 +55,7 @@ async function getPaginationPages() {
   if (limit < setLimit()) {
     filters.ulRef.style.display = 'none';
   }
-  const pagination = new Pagination('pagination', options);
+  pagination = new Pagination('pagination', options);
   pagination.on('beforeMove', onBeforeMovePagination);
 }
 function onBeforeMovePagination(e) {
@@ -59,9 +65,15 @@ function onBeforeMovePagination(e) {
 async function getPagination(page) {
   const limit = setLimit();
   const api = new ProductsAPI();
+  const optionLimit = loadFromLocalStorage(FILTER_KEY);
   const response = await api.getProducts({ page: page, limit: limit });
-
+  saveToLocalStorage(FILTER_KEY, {
+    ...optionLimit,
+    page,
+    limit: limit,
+  });
   const dataProducts = response.results;
+  saveUniqueElements(PRODUCTS_KEY, dataProducts);
 
   paginationBtnHandler(dataProducts);
 }
@@ -92,6 +104,7 @@ function setLimit() {
     return limit;
   }
 }
+export { pagination };
 // leftBtn.innerHTML = `<svg width="24" height="24" class="icon-left"><use href='${icons}#icon-left'></use></svg>`;
 
 // rightBtn.innerHTML = `<svg width="24" height="24" class="icon-right"><use href='${icons}#icon-right'></use></svg>`;
