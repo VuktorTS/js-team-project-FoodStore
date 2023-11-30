@@ -14,6 +14,13 @@ import {
 import { createCardsMarkup } from './helpers/create-markup';
 const containerPagination = document.getElementById('pagination');
 
+function reloadOnResize() {
+  location.reload();
+}
+
+// Додаємо обробник події resize
+window.addEventListener('resize', reloadOnResize);
+
 getPaginationPages();
 let pagination = '';
 
