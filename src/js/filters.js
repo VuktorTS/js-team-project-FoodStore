@@ -1,4 +1,5 @@
 import SlimSelect from 'slim-select';
+import { Pagination } from 'tui-pagination';
 import { ProductsAPI } from './helpers/food-api';
 import { FILTER_KEY, PRODUCTS_KEY, CATEGORY_KEY } from './helpers/storage-keys';
 import {
@@ -12,6 +13,7 @@ import { onClickModal } from './helpers/modal';
 import { onClickAddedProductInCart } from './helpers/on-click';
 import 'npm:slim-select/dist/slimselect.css';
 import '../css/index.css';
+import { pagination } from './pagination';
 
 checkStorage();
 
@@ -24,17 +26,20 @@ export const filters = {
   select: new SlimSelect({
     events: {
       beforeChange: newVal => {
+        pagination.reset();
         const selected = newVal[0].value;
+        const storageSave = loadFromLocalStorage(FILTER_KEY);
         if (selected === 'Show all') {
           filters.inputRef.value = '';
           saveToLocalStorage(FILTER_KEY, {
+            ...storageSave,
             keyword: null,
             category: null,
+            page: 1,
           });
           renderMarkUpProducts();
           return;
         }
-        const storageSave = loadFromLocalStorage(FILTER_KEY);
         if (selected !== 'Show all') {
           saveToLocalStorage(FILTER_KEY, {
             ...storageSave,
@@ -97,6 +102,7 @@ async function fetchProducts() {
     keyword: storageSave.keyword,
     category: storageSave.category,
     limit: window.innerWidth < 768 ? 6 : window.innerWidth < 1440 ? 8 : 9,
+    // page: storageSave.page,
   });
   const result = await response.results;
   return result;
@@ -142,6 +148,8 @@ function checkStorage() {
     saveToLocalStorage(FILTER_KEY, {
       keyword: null,
       category: null,
+      page: 1,
+      limit: 9,
     });
   }
 }
