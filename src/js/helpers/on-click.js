@@ -12,10 +12,10 @@ function onClickAddedProductInCart(event) {
     const allBtnAddedCart = document.querySelectorAll(
       `[data-id="${idProduct}"]`
     );
-    allBtnAddedCart.forEach(
-      buttonChangeInnerHtml =>
-        (buttonChangeInnerHtml.innerHTML = `<svg class="cart_svg" width="18" height="18"><use href="${icons}#icon-check"></use></svg>`)
-    );
+    allBtnAddedCart.forEach(buttonChangeInnerHtml => {
+      buttonChangeInnerHtml.innerHTML = `<svg class="cart_svg"><use href="${icons}#icon-check"></use></svg>`;
+      buttonChangeInnerHtml.classList.add('add');
+    });
 
     const product = loadFromLocalStorage(PRODUCTS_KEY).filter(
       ({ _id }) => idProduct === _id
@@ -30,10 +30,10 @@ function onClickAddedProductInCart(event) {
     const allBtnAddedCart = document.querySelectorAll(
       `[data-id="${idProduct}"]`
     );
-    allBtnAddedCart.forEach(
-      buttonChangeInnerHtml =>
-        (buttonChangeInnerHtml.innerHTML = `<svg class="cart_svg" width="18" height="18"><use href="${icons}#icon-shopping-cart"></use></svg>`)
-    );
+    allBtnAddedCart.forEach(buttonChangeInnerHtml => {
+      buttonChangeInnerHtml.innerHTML = `<svg class="cart_svg"><use href="${icons}#icon-shopping-cart"></use></svg>`;
+      buttonChangeInnerHtml.classList.remove('add');
+    });
 
     jsBtn.dataset.isAdded = false;
     const product = loadFromLocalStorage(CART_KEY).filter(
