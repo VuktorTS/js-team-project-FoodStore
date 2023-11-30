@@ -82,7 +82,7 @@ function createCardsMarkup(products) {
               <img src="${img}" class="img_card" alt="${name}" />
             </div>
             <div class="text_wrapped">
-              <h3 class="text_name_prod">${name}</h3>
+              <h2 class="text_name_prod">${name}</h2>
               <div class="wrapper_info">
                 <p class="text_title">Category:</p>
                 <span class="text_subtitle">${category}</span>
